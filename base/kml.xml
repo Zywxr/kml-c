@@ -294,7 +294,7 @@
         <word gender="F" plural="vaches">vache</word>
         <word gender="F" plural="valises">valise</word>
         <word gender="M" plural="ventilateurs">ventilateur</word>
-        <word gender="M" plural="vérandas">vérandas</word>
+        <word gender="F" plural="vérandas">véranda</word>
         <word gender="M" plural="vikings">viking</word>
         <word gender="M" plural="yaourts">yaourt</word>
         <word gender="M" plural="zèbres">zèbre</word>
@@ -555,119 +555,244 @@
         <word inf="tutoyer">je tutoie</word>
         <word inf="vomir">je vomis sur</word>
     </verbe>
+    <complement>
+      <word m="à Ikea"/>
+      <word m="à la cantine"/>
+      <word m="à carreaux"/>
+      <word m="à hélices"/>
+      <word m="à lunettes"/>
+      <word m="à moteur"/>
+      <word m="à moustaches"/>
+      <word m="à rayures"/>
+      <word m="à pédales"/>
+      <word m="à propulsion"/>
+      <word m="à ressorts"/>
+      <word m="à roulettes"/>
+      <word m="à vapeur"/>
+      <word m="à voile"/>
+      <word m="aérodynamique"/>
+      <word m="agricole"/>
+      <word m="alcoolique"/>
+      <word m="anorexique"/>
+      <word m="aquatique"/>
+      <word m="apocalyptique"/>
+      <word m="artistique"/>
+      <word m="asiatique"/>
+      <word m="atmosphérique"/>
+      <word m="attardé" f="attardée"/>
+      <word m="autocollant" f="autocollante"/>
+      <word m="automatique"/>
+      <word m="au bowling"/>
+      <word m="au Cameroun"/>
+      <word m="au cinéma"/>
+      <word m="au dessus d'un ravin"/>
+      <word m="au McDrive"/>
+      <word m="avec acharnement"/>
+      <word m="avec des gants de boxe"/>
+      <word m="avec une cuillère"/>
+      <word m="avec des moufles"/>
+      <word m="avec des tongs"/>
+      <word m="belge"/>
+      <word m="bleu" f="bleue"/>
+      <word m="bulgare"/>
+      <word m="capitaliste"/>
+      <word m="célibataire"/>
+      <word m="chez Roger"/>
+      <word m="communiste"/>
+      <word m="congolais" f="congolaise"/>
+      <word m="cosmique"/>
+      <word m="daltonien" f="daltonienne"/>
+      <word m="dans l'espace"/>
+      <word m="dans le sens des aiguilles d'une montre"/>
+      <word m="dans le Wyoming"/>
+      <word m="dans un concours de lancer de poneys"/>
+      <word m="dans un meeting nudiste"/>
+      <word m="dans un parking"/>
+      <word m="d'anniversaire"/>
+      <word m="de 16m"/>
+      <word m="de Noël"/>
+      <word m="du nord"/>
+      <word m="du sud"/>
+      <word m="effrayé" f="effrayée"/>
+      <word m="électrique"/>
+      <word m="électronique"/>
+      <word m="enragé" f="enragée"/>
+      <word m="en bois"/>
+      <word m="en carton"/>
+      <word m="en céramique"/>
+      <word m="en contreplaqué"/>
+      <word m="en faisant le poirier"/>
+      <word m="en pantalon"/>
+      <word m="en peluche"/>
+      <word m="en plastique"/>
+      <word m="en promotion"/>
+      <word m="en Roumanie"/>
+      <word m="en salade"/>
+      <word m="en salopette"/>
+      <word m="extraterrestre"/>
+      <word m="extensible"/>
+      <word m="fluorescent" f="fluorescente"/>
+      <word m="génétiquement modifié" f="génétiquement modifiée"/>
+      <word m="haute définition"/>
+      <word m="industriel" f="industrielle"/>
+      <word m="invisible"/>
+      <word m="irlandais" f="irlandaise"/>
+      <word m="jaune"/>
+      <word m="mauve"/>
+      <word m="magique"/>
+      <word m="maritime"/>
+      <word m="métallique"/>
+      <word m="mexicain" f="mexicaine"/>
+      <word m="moldave"/>
+      <word m="musical" f="musicale"/>
+      <word m="norvégien" f="norvégienne"/>
+      <word m="obèse"/>
+      <word m="orange"/>
+      <word m="par ordre alphabétique"/>
+      <word m="par ordre chronologique"/>
+      <word m="par Colissimo"/>
+      <word m="pendant une manifestion d'agriculteurs en colère"/>
+      <word m="portugais" f="portugaise"/>
+      <word m="professionnel" f="professionnelle"/>
+      <word m="qui court"/>
+      <word m="qui parle"/>
+      <word m="qui tousse"/>
+      <word m="rose"/>
+      <word m="russe"/>
+      <word m="sauvage"/>
+      <word m="sinusoïdale"/>
+      <word m="sous-marin" f="sous-marine"/>
+      <word m="sur glace"/>
+      <word m="sur internet"/>
+      <word m="sur l'autoroute"/>
+      <word m="sur la lune"/>
+      <word m="sur la banquette arrière d'une Smart"/>
+      <word m="sur TF1"/>
+      <word m="surgelé" f="surgelée"/>
+      <word m="suspect" f="suspecte"/>
+      <word m="synchronisé" f="synchronisée"/>
+      <word m="tchécoslovaque"/>
+      <word m="tactile"/>
+      <word m="transparent" f="transparente"/>
+      <word m="triangulaire"/>
+      <word m="turquoise"/>
+      <word m="végétarien" f="végétarienne"/>
+      <word m="violet" f="violette"/>
+      <word m="volant" f="volante"/>
+    </complement>
     <nomspecial>
-        <word>apiculteur slovaque</word>
-        <word>aspirateur rouge</word>
-        <word>assortiment de charcuterie</word>
-        <word>aubergiste péruvien</word>
-        <word>bac à glacons</word>
-        <word>bateau mouche</word>
-        <word>batteur à homards</word>
-        <word>bidon d'eau de javel</word>
-        <word>bocal à poissons</word>
-        <word>boeuf bourguignon</word>
-        <word>bottes en caoutchouc</word>
-	<word>brandade de morue</word>
-        <word>brochette de poulet</word>
-        <word>brosse à dents électrique</word>
-        <word>brouette à essence</word>
-        <word>couteau de cuisine</word>
-        <word>cactus gonflable</word>
-        <word>cage à oiseaux</word>
-        <word>camembert jaune</word>
-        <word>camping acrobatique</word>
-        <word>canard en plastique</word>
-        <word>caravane pliante</word>
-        <word>casserole de ratatouille</word>
-        <word>champignon hallucinogène</word>
-        <word>charette de harengs</word>
-        <word>chauffagiste animalier</word>
-        <word>chemise hawaienne</word>
-        <word>choucroute burger</word>
-        <word>classeur à frites</word>
-        <word>clavicule malgache</word>
-        <word>clef à molette</word>
-        <word>crème pâtissière</word>
-        <word>cube à trois faces</word>
-	<word>cuisinière électrique</word>
-        <word>cuvette de WC savoyards</word>
-        <word>décapsuleur à loutres</word>
-        <word>démonstration de ski nautique</word>
-        <word>dindon polygame</word>
-        <word>double pastis</word>
-        <word>drapeau italien</word>
-        <word>dresseur de pianos</word>
-        <word>endive à moustaches</word>
-        <word>escargot de Bourgogne</word>
-        <word>exhibitionniste musical</word>
-        <word>fabricant de moquette</word>
-        <word>filet de maquereau à la moutarde</word>
-        <word>fourchette à dromadaire</word>
-        <word>frein hydraulique</word>
-        <word>frigo qui court</word>
-	<word>fromage de chaise</word>
-        <word>garagiste pour fromage</word>
-        <word>gigot d'agneau</word>
-        <word>goéland des montagnes</word>
-        <word>grille de coloriage</word>
-        <word>handball sur glace</word>
-        <word>imprimante à pizzas</word>
-        <word>karaoké synchronisé</word>
-        <word>lampe à pétrole</word>
-        <word>loutre toxicomane</word>
-        <word>madeleine à la fraise</word>
-        <word>ménestrel volant</word>
-        <word>moissonneuse à lapin</word>
-        <word>moniteur de poney</word>
-        <word>moonwalk sur gazon</word>
-        <word>moule à cake</word>
-        <word>nain mexicain en kilt</word>
-        <word>omoplate de pakistanais</word>
-        <word>papier tue-mouche</word>
-        <word>parpaing australien</word>
-        <word>parquet flottant</word>
-        <word>passoire mexicaine</word>
-        <word>pâté à roulettes</word>
-        <word>pelle à gateau</word>
-        <word>pelleteuse en grève</word>
-        <word>permis de chasse</word>
-        <word>petit canaillou</word>
-        <word>petits dés de viande</word>
-        <word>pince-monseigneur</word>
-        <word>pizzeria birmane</word>
-        <word>planche à pain</word>
-        <word>plantation de chaises</word>
-        <word>plaquette de beurre</word>
-        <word>plongeur en métallurgie</word>
-        <word>poêle à frire</word>
-        <word>poignée de porte</word>
-        <word>porte de placard</word>
-        <word>pot de mayonnaise</word>
-        <word>poteau electrique</word>
-        <word>poulet basquaise</word>
-        <word>professeur de portugais</word>
-        <word>rateau automatique</word>
-        <word>réchauffement climatique</word>
-        <word>renard congolais</word>
-        <word>revue de jardinage</word>
-        <word>sabot bavarois</word>
-        <word>sandwich jambon-cornichon</word>
-        <word>saucisse de Francfort</word>
-        <word>scie circulaire</word>
-        <word>sculpture sur haricot rouge</word>
-        <word>service à gouda</word>
-        <word>short de combat</word>
-        <word>steak au grill</word>
-        <word>tabatière anatomique</word>
-        <word>tasse à pot-au-feu</word>
-        <word>tourniquet corse</word>
-        <word>tourte du jardin</word>
-        <word>tranche de fer à repasser</word>
-        <word>trombonne à rayures</word>
-        <word>trotinette turquoise</word>
-        <word>tuning sur Fiat Punto</word>
-        <word>usine de couscous</word>
-        <word>vache qui rit</word>
-        <word>volets en bois</word>
+      <word>apiculteur slovaque</word>
+      <word>aspirateur rouge</word>
+      <word>assortiment de charcuterie</word>
+      <word>aubergiste péruvien</word>
+      <word>bac à glacons</word>
+      <word>bateau mouche</word>
+      <word>batteur à homards</word>
+      <word>bidon d'eau de javel</word>
+      <word>bocal à poissons</word>
+      <word>boeuf bourguignon</word>
+      <word>bottes en caoutchouc</word>
+      <word>brandade de morue</word>
+      <word>brochette de poulet</word>
+      <word>brosse à dents électrique</word>
+      <word>brouette à essence</word>
+      <word>couteau de cuisine</word>
+      <word>cactus gonflable</word>
+      <word>cage à oiseaux</word>
+      <word>camembert jaune</word>
+      <word>camping acrobatique</word>
+      <word>canard en plastique</word>
+      <word>caravane pliante</word>
+      <word>casserole de ratatouille</word>
+      <word>champignon hallucinogène</word>
+      <word>charette de harengs</word>
+      <word>chauffagiste animalier</word>
+      <word>chemise hawaienne</word>
+      <word>choucroute burger</word>
+      <word>classeur à frites</word>
+      <word>clavicule malgache</word>
+      <word>clef à molette</word>
+      <word>crème pâtissière</word>
+      <word>cube à trois faces</word>
+      <word>cuisinière électrique</word>
+      <word>cuvette de WC savoyards</word>
+      <word>décapsuleur à loutres</word>
+      <word>démonstration de ski nautique</word>
+      <word>dindon polygame</word>
+      <word>double pastis</word>
+      <word>drapeau italien</word>
+      <word>dresseur de pianos</word>
+      <word>endive à moustaches</word>
+      <word>escargot de Bourgogne</word>
+      <word>exhibitionniste musical</word>
+      <word>fabricant de moquette</word>
+      <word>filet de maquereau à la moutarde</word>
+      <word>fourchette à dromadaire</word>
+      <word>frein hydraulique</word>
+      <word>frigo qui court</word>
+      <word>fromage de chaise</word>
+      <word>garagiste pour fromage</word>
+      <word>gigot d'agneau</word>
+      <word>goéland des montagnes</word>
+      <word>grille de coloriage</word>
+      <word>handball sur glace</word>
+      <word>imprimante à pizzas</word>
+      <word>karaoké synchronisé</word>
+      <word>lampe à pétrole</word>
+      <word>loutre toxicomane</word>
+      <word>madeleine à la fraise</word>
+      <word>ménestrel volant</word>
+      <word>moissonneuse à lapin</word>
+      <word>moniteur de poney</word>
+      <word>moonwalk sur gazon</word>
+      <word>moule à cake</word>
+      <word>nain mexicain en kilt</word>
+      <word>omoplate de pakistanais</word>
+      <word>papier tue-mouche</word>
+      <word>parpaing australien</word>
+      <word>parquet flottant</word>
+      <word>passoire mexicaine</word>
+      <word>pâté à roulettes</word>
+      <word>pelle à gateau</word>
+      <word>pelleteuse en grève</word>
+      <word>permis de chasse</word>
+      <word>petit canaillou</word>
+      <word>petits dés de viande</word>
+      <word>pince-monseigneur</word>
+      <word>pizzeria birmane</word>
+      <word>planche à pain</word>
+      <word>plantation de chaises</word>
+      <word>plaquette de beurre</word>
+      <word>plongeur en métallurgie</word>
+      <word>poêle à frire</word>
+      <word>poignée de porte</word>
+      <word>porte de placard</word>
+      <word>pot de mayonnaise</word>
+      <word>poteau electrique</word>
+      <word>poulet basquaise</word>
+      <word>professeur de portugais</word>
+      <word>rateau automatique</word>
+      <word>réchauffement climatique</word>
+      <word>renard congolais</word>
+      <word>revue de jardinage</word>
+      <word>sabot bavarois</word>
+      <word>sandwich jambon-cornichon</word>
+      <word>saucisse de Francfort</word>
+      <word>scie circulaire</word>
+      <word>sculpture sur haricot rouge</word>
+      <word>service à gouda</word>
+      <word>short de combat</word>
+      <word>steak au grill</word>
+      <word>tabatière anatomique</word>
+      <word>tasse à pot-au-feu</word>
+      <word>tourniquet corse</word>
+      <word>tourte du jardin</word>
+      <word>tranche de fer à repasser</word>
+      <word>trombonne à rayures</word>
+      <word>trotinette turquoise</word>
+      <word>tuning sur Fiat Punto</word>
+      <word>usine de couscous</word>
+      <word>vache qui rit</word>
+      <word>volets en bois</word>
     </nomspecial>
 </resources>

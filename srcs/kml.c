@@ -6,8 +6,13 @@
 #include "kml.h"
 #include "error.h"
 
+/* Le compilo sera pas content sans ca */
+char *strdup(const char *s);
+
 void set_attribute(s_kml *kml, xmlNodePtr node) {
   char *gender;
+  char *m;
+  char *f;
 
   gender = NULL;
   if (kml->cat == NOM) {
@@ -15,6 +20,15 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
     if (gender)
       kml->kmlcat->gender[strlen(kml->kmlcat->gender)] = gender[0];
     free(gender);
+  }
+  else if (kml->cat == COMP) {
+    m = (char*)xmlGetProp(node, (xmlChar*)"m");
+    f = (char*)xmlGetProp(node, (xmlChar*)"f");
+    if (!f)
+      f = strdup(m);
+    kml->kmlcat->comp_m[kml->kmlcat->l_comp] = m;
+    kml->kmlcat->comp_f[kml->kmlcat->l_comp] = f != NULL ? f : "";
+    kml->kmlcat->l_comp++;
   }
 }
 
@@ -27,6 +41,8 @@ void set_category(s_kml *kml, char *cat) {
     kml->cat = NOMSPE;
   else if (!strcmp(cat, "verbe"))
     kml->cat = VERBE;
+  else if (!strcmp(cat, "complement"))
+    kml->cat = COMP;
   else
     kml->cat = NONE;
 }
@@ -91,6 +107,8 @@ int init_kml(s_kml **kml) {
   (*kml)->kmlcat->gender = NULL;
   (*kml)->kmlcat->nompropre = NULL;
   (*kml)->kmlcat->nomspecial = NULL;
+  (*kml)->kmlcat->comp_m = NULL;
+  /* (*kml)->kmlcat->comp_f = NULL; */
   (*kml)->kmlcat->verbe = NULL;
 
   if (((*kml)->kmlcat->nom = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
@@ -111,6 +129,15 @@ int init_kml(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: nomspecial"));
   (*kml)->kmlcat->l_nomspecial = 0;
   init_category((*kml)->kmlcat->nomspecial);
+
+  if (((*kml)->kmlcat->comp_m = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_m"));
+  (*kml)->kmlcat->l_comp = 0;
+  init_category((*kml)->kmlcat->comp_m);
+
+  if (((*kml)->kmlcat->comp_f = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_f"));
+  init_category((*kml)->kmlcat->comp_f);
 
   if (((*kml)->kmlcat->verbe = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
     return (error(E_MALLOC, "kmlcat: verbe"));
@@ -134,6 +161,11 @@ void debug(s_kml *kml) {
   for (ct = 0; ct < kml->kmlcat->l_nomspecial; ct++) {
     if (kml->kmlcat->nomspecial[ct] != NULL)
       printf("Nomspecial: %s.\n", kml->kmlcat->nomspecial[ct]);
+  }
+  for (ct = 0; ct < kml->kmlcat->l_comp; ct++) {
+    if (kml->kmlcat->comp_m[ct] != NULL && kml->kmlcat->comp_f[ct] != NULL)
+      printf("Complement: %s - %s.\n", kml->kmlcat->comp_m[ct],
+	     kml->kmlcat->comp_f[ct]);
   }
   for (ct = 0; ct < kml->kmlcat->l_verbe; ct++) {
     if (kml->kmlcat->verbe[ct] != NULL)
@@ -165,8 +197,10 @@ void free_category(char **category) {
 
   if (category != NULL) {
     for (ct = 0; ct < MAX_SIZE; ct++)
-      if (category[ct] != NULL)
+      if (category[ct] != NULL) {
 	free(category[ct]);
+	category[ct] = NULL;
+      }
     free(category);
   }
 }
@@ -181,6 +215,8 @@ void free_xml(s_kml **kml) {
       	free((*kml)->kmlcat->gender);
       free_category((*kml)->kmlcat->nompropre);
       free_category((*kml)->kmlcat->nomspecial);
+      free_category((*kml)->kmlcat->comp_m);
+      free_category((*kml)->kmlcat->comp_f);
       free_category((*kml)->kmlcat->verbe);
       free((*kml)->kmlcat);
     }
@@ -188,34 +224,65 @@ void free_xml(s_kml **kml) {
   }
 }
 
+int isnum(char *opt) {
+  unsigned int i;
+
+  if (!strlen(opt))
+    return (FAILURE);
+  for (i = 0; i < strlen(opt); i++)
+    if (opt[i] < '0' || opt[i] > '9')
+      return (FAILURE);
+  return (SUCCESS);
+}
+
 int main(int ac, char **av) {
+  unsigned int i;
+  int occur;
   int result;
   s_kml *kml;
   int (*kmlfct)(s_kml*);
 
-  if (ac > 2)
+  if (ac > 3)
     return (error(USAGE, NULL));  /* Returns FAILURE */
-
+  /* Argument parsing */
+  occur = 0;
   kmlfct = NULL;
-  if (ac == 1)
-    kmlfct = &kamoulox;
-  else if (ac == 2 && !strcmp(av[1], "kamounom"))
-    kmlfct = &kamounom;
-  else if (ac == 2 && !strcmp(av[1], "kamouscuse"))
-    kmlfct = &kamouscuse;
-  else if (ac == 2 && !strcmp(av[1], "kamousulte"))
-    kmlfct = &kamousulte;
-
+  for (i = 1; i < (unsigned int)ac; i++) {
+    if (!strcmp(av[i], "--help")) {
+      printf("%s\n", HELP);
+      return (SUCCESS);
+    }
+    else if (!strcmp(av[i], "kamounom"))
+      kmlfct = &kamounom;
+    else if (!strcmp(av[i], "kamouscuse") && !kmlfct)
+      kmlfct = &kamouscuse;
+    else if (!strcmp(av[i], "kamousulte") && !kmlfct)
+      kmlfct = &kamousulte;
+    else if (strlen(av[i]) >= 3 && av[i][0] == '-' && av[i][1] == 'n'
+	     && isnum(&av[i][2]) == SUCCESS) {
+      occur = atoi(&av[i][2]);
+      if (occur <= 0 || occur > 100)
+	return (error(E_ARG_OCC, NULL));
+    }
+    else
+      return (error(USAGE, av[i]));
+  }
   if (kmlfct == NULL)
-    return (error(USAGE, NULL));
-  
+    kmlfct = &kamoulox;
+  /* Now we can start */
   result = get_xml(&kml, XML_FILE);
   if (result == FAILURE) {
     free_xml(&kml);
     return (error(E_XML_GEN, XML_FILE));
   }
   srand(getpid());
-  result = (*kmlfct)(kml);
+  if (!occur)
+    result = (*kmlfct)(kml);
+  for (i = 0; i < (unsigned int)occur; i++) {
+    result = (*kmlfct)(kml);
+    if (result == FAILURE)
+      return (error(E_ERROR, NULL));
+  }
   free_xml(&kml);
   return (result);
 }

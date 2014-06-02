@@ -33,9 +33,12 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
 	   kml->kmlcat->gender[r1] == 'M' ? "un" : "une", 
 	   kml->kmlcat->nom[r1]);
     /* On rajoute un complement ? */
-    /* if ((rand() % 4) == 2) { */
-    /* printf(" %s", "complement");       */
-    /* } */
+    if ((rand() % 4) == 2) {
+      if (kml->kmlcat->gender[r1] == 'M')
+	printf(" %s", kml->kmlcat->comp_m[rand() % kml->kmlcat->l_comp]);
+      else
+      	printf(" %s", kml->kmlcat->comp_f[rand() % kml->kmlcat->l_comp]);
+    }
   }
 } 
 

@@ -9,8 +9,8 @@ int error(char *msg, char *value) {
     return (FAILURE);
   }
   if (value != NULL)
-    printf("Error: %s (%s).\n", msg, value);
+    printf("Error: %s (%s)\n", msg, value);
   else
-    printf("Error: %s.\n", msg);
+    printf("Error: %s\n", msg);
   return (FAILURE);
 }

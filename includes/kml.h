@@ -11,8 +11,7 @@ typedef enum {
   NOMPROPRE,
   NOMSPE,
   VERBE,
-  COMP_M,
-  COMP_F
+  COMP
 } k_type;
 
 typedef struct KML_cat {

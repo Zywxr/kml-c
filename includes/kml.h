@@ -11,7 +11,8 @@ typedef enum {
   NOMPROPRE,
   NOMSPE,
   VERBE,
-  COMP
+  COMP,
+  PRENOM
 } k_type;
 
 typedef struct KML_cat {
@@ -27,6 +28,8 @@ typedef struct KML_cat {
   char **comp_m;
   char **comp_f;
   int l_comp;
+  char **prenom;
+  int l_prenom;
   /* FIX: Do one struct per type with list and size */
 } s_kmlcat;
 

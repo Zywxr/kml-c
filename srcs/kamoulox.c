@@ -15,6 +15,22 @@ char *capt(char *str) {
   return (str);
 }
 
+char *replace(char old, char new, char *str) {
+  unsigned int i;
+
+  if (!str)
+    return (str);
+  for (i = 0; i < strlen(str); i++) {
+    if (str[i] == old)
+      str[i] = new;
+  }
+  return (str);
+}
+
+char *familyname(char *str) {
+  return (replace(' ', '-', capt(str)));
+}
+
 void kamoulox_t1_part(int turn, s_kml *kml) {
   int r1;
   char *v;
@@ -67,10 +83,9 @@ int kamoulox(s_kml *kml) {
 }
 
 int kamounom(s_kml *kml) {
-  char* kamoustr;
-
-  kamoustr = "KAMOUNOM !";
-  kml = kml;
+  printf("%s %s\n",
+	 capt(kml->kmlcat->prenom[rand() % kml->kmlcat->l_prenom]),
+	 familyname(kml->kmlcat->nom[rand() % kml->kmlcat->l_nom]));
   return (SUCCESS);
 }
 

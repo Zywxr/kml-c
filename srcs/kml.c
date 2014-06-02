@@ -43,6 +43,8 @@ void set_category(s_kml *kml, char *cat) {
     kml->cat = VERBE;
   else if (!strcmp(cat, "complement"))
     kml->cat = COMP;
+  else if (!strcmp(cat, "prenom"))
+    kml->cat = PRENOM;
   else
     kml->cat = NONE;
 }
@@ -57,6 +59,8 @@ void append(s_kml *kml, char *content) {
     kml->kmlcat->nomspecial[kml->kmlcat->l_nomspecial++] = (void*)content;
   else if (kml->cat == VERBE)
     kml->kmlcat->verbe[kml->kmlcat->l_verbe++] = (void*)content;
+  else if (kml->cat == PRENOM)
+    kml->kmlcat->prenom[kml->kmlcat->l_prenom++] = (void*)content;
 }
 
 void store_kml(s_kml* kml, xmlNodePtr node) {
@@ -108,8 +112,9 @@ int init_kml(s_kml **kml) {
   (*kml)->kmlcat->nompropre = NULL;
   (*kml)->kmlcat->nomspecial = NULL;
   (*kml)->kmlcat->comp_m = NULL;
-  /* (*kml)->kmlcat->comp_f = NULL; */
+  (*kml)->kmlcat->comp_f = NULL;
   (*kml)->kmlcat->verbe = NULL;
+  /* (*kml)->kmlcat->prenom = NULL; */
 
   if (((*kml)->kmlcat->nom = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
     return (error(E_MALLOC, "kmlcat: nom"));
@@ -144,6 +149,11 @@ int init_kml(s_kml **kml) {
   (*kml)->kmlcat->l_verbe = 0;
   init_category((*kml)->kmlcat->verbe);
 
+  if (((*kml)->kmlcat->prenom = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+    return (error(E_MALLOC, "kmlcat: prenom"));
+  (*kml)->kmlcat->l_prenom = 0;
+  init_category((*kml)->kmlcat->prenom);
+
   return (SUCCESS);
 }
 
@@ -170,6 +180,10 @@ void debug(s_kml *kml) {
   for (ct = 0; ct < kml->kmlcat->l_verbe; ct++) {
     if (kml->kmlcat->verbe[ct] != NULL)
       printf("Verbe: %s.\n", kml->kmlcat->verbe[ct]);
+  }
+  for (ct = 0; ct < kml->kmlcat->l_prenom; ct++) {
+    if (kml->kmlcat->prenom[ct] != NULL)
+      printf("Prenom: %s.\n", kml->kmlcat->prenom[ct]);
   }
 }
 
@@ -218,6 +232,7 @@ void free_xml(s_kml **kml) {
       free_category((*kml)->kmlcat->comp_m);
       free_category((*kml)->kmlcat->comp_f);
       free_category((*kml)->kmlcat->verbe);
+      free_category((*kml)->kmlcat->prenom);
       free((*kml)->kmlcat);
     }
     free(*kml);

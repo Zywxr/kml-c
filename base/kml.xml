@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resources>
+    <nom>
+        <word gender="M" plural="abats-jour">abat-jour</word>
+        <word gender="M" plural="accordéons">accordéon</word>
+        <word gender="M" plural="accoudoirs">accoudoir</word>
+        <word gender="M" plural="aéroports">aéroport</word>
+        <word gender="M" plural="aliens">alien</word>
+        <word gender="M" plural="allemands">allemand</word>
+        <word gender="M" plural="alligators">alligator</word>
+        <word gender="M" plural="altimètres">altimètre</word>
+        <word gender="F" plural="ampoules 250W">ampoule 250W</word>
+        <word gender="M" plural="ananas">ananas</word>
+        <word gender="F" plural="andouillettes">andouillette</word>
+        <word gender="M" plural="appareils à raclette">appareil à raclette</word>
+        <word gender="F" plural="armoires">armoire</word>
+        <word gender="M" plural="arrosoirs">arrosoir</word>
+        <word gender="M" plural="artichauts">artichaut</word>
+        <word gender="M" plural="ascenseurs">ascenseur</word>
+        <word gender="M" plural="aspirateurs">aspirateur</word>
+        <word gender="F" plural="assiettes">assiette</word>
+        <word gender="M" plural="astronautes">astronaute</word>
+        <word gender="F" plural="aubergines">aubergine</word>
+        <word gender="F" plural="autruches">autruche</word>
+        <word gender="M" plural="bacs à douche">bac à douche</word>
+        <word gender="F" plural="baignoires">baignoire</word>
+        <word gender="F" plural="baleines">baleine</word>
+        <word gender="F" plural="bananes">banane</word>
+        <word gender="M" plural="banjos">banjo</word>
+        <word gender="M" plural="barbecues">barbecue</word>
+        <word gender="F" plural="barraques à frites">barraque à frites</word>
+        <word gender="F" plural="barrières">barrière</word>
+        <word gender="M" plural="bateaux">bateau</word>
+        <word gender="M" plural="beignets de crevette">beignet de crevette</word>
+        <word gender="M" plural="bermudas">bermuda</word>
+        <word gender="F" plural="bétonneuses">bétonneuse</word>
+        <word gender="F" plural="betteraves">betterave</word>
+        <word gender="F" plural="bibliothèques">bibliothèque</word>
+        <word gender="M" plural="bidets">bidet</word>
+        <word gender="F" plural="biscottes">biscotte</word>
+        <word gender="M" plural="biscuits">biscuit</word>
+        <word gender="M" plural="Bisounours">Bisounours</word>
+        <word gender="F" plural="boîtes à gants">boîte à gants</word>
+        <word gender="F" plural="boîtes aux lettres">boîte aux lettres</word>
+        <word gender="M" plural="bonhommes de neiges">bonhomme de neige</word>
+        <word gender="M" plural="bonnets de bain">bonnet de bain</word>
+        <word gender="M" plural="boomerangs">boomerang</word>
+        <word gender="F" plural="bouteilles de pastis">bouteille de pastis</word>
+        <word gender="F" plural="branches d'arbre">branche d'arbre</word>
+        <word gender="F" plural="brosses à dents">brosse à dents</word>
+        <word gender="F" plural="brouettes">brouette</word>
+        <word gender="M" plural="burritos">burrito</word>
+        <word gender="F" plural="cabines téléphoniques">cabine téléphonique</word>
+        <word gender="F" plural="cacahuètes">cacahuète</word>
+        <word gender="M" plural="caddies">caddie</word>
+        <word gender="F" plural="cafetières">cafetière</word>
+        <word gender="M" plural="cageots">cageot</word>
+        <word gender="M" plural="calamars">calamar</word>
+        <word gender="F" plural="calculatrices">calculatrice</word>
+        <word gender="M" plural="camions">camion</word>
+        <word gender="M" plural="camping-cars">camping-car</word>
+        <word gender="M" plural="canadiens">canadien</word>
+        <word gender="M" plural="canards">canard</word>
+        <word gender="F" plural="caravanes">caravane</word>
+        <word gender="M" plural="caribous">caribou</word>
+        <word gender="F" plural="carottes">carotte</word>
+        <word gender="F" plural="casseroles">casserole</word>
+        <word gender="M" plural="cassoulets">cassoulet</word>
+        <word gender="M" plural="castors">castor</word>
+        <word gender="F" plural="centrifugeuses">centrifugeuse</word>
+        <word gender="M" plural="chameaux">chameau</word>
+        <word gender="M" plural="champignons">champignon</word>
+        <word gender="F" plural="chasses d'eau">chasse d'eau</word>
+        <word gender="F" plural="chaussettes">chaussette</word>
+        <word gender="F" plural="chaussures">chaussure</word>
+        <word gender="F" plural="chèvres">chèvre</word>
+        <word gender="M" plural="chinois">chinois</word>
+        <word gender="F" plural="choucroutes">choucroute</word>
+        <word gender="M" plural="choux-fleur">chou-fleur</word>
+        <word gender="M" plural="cigares">cigare</word>
+        <word gender="F" plural="clés de douze">clé de douze</word>
+        <word gender="M" plural="climatiseurs">climatiseur</word>
+        <word gender="M" plural="clubs de golf">club de golf</word>
+        <word gender="M" plural="cochons">cochon</word>
+        <word gender="F" plural="cocottes-minute">cocotte-minute</word>
+        <word gender="F" plural="commodes">commode</word>
+        <word gender="M" plural="concombres">concombre</word>
+        <word gender="M" plural="congélateurs">congélateur</word>
+        <word gender="F" plural="contrebasses">contrebasse</word>
+        <word gender="F" plural="corbeilles à papier">corbeille à papier</word>
+        <word gender="F" plural="cornemuses">cornemuse</word>
+        <word gender="M" plural="cornichons">cornichon</word>
+        <word gender="F" plural="côtes de porc">côte de porc</word>
+        <word gender="F" plural="côtelettes">côtelette</word>
+        <word gender="M" plural="coucous suisses">coucou suisse</word>
+	<word gender="F" plural="courgettes">courgette</word>
+        <word gender="F" plural="couscoussières">couscoussière</word>
+        <word gender="M" plural="coussins">coussin</word>
+        <word gender="M" plural="cow-boys">cow-boy</word>
+        <word gender="F" plural="cravates">cravate</word>
+        <word gender="F" plural="crevettes">crevette</word>
+        <word gender="M" plural="crocodiles">crocodile</word>
+        <word gender="F" plural="cuvettes">cuvette</word>
+        <word gender="M" plural="deltaplanes">deltaplane</word>
+        <word gender="M" plural="dinosaures">dinosaure</word>
+        <word gender="M" plural="tubes de dentifrice">tube de dentifrice</word>
+        <word gender="M" plural="dindons">dindon</word>
+        <word gender="M" plural="dromadaires">dromadaire</word>
+        <word gender="M" plural="échafaudages">échafaudage</word>
+        <word gender="F" plural="échelles">échelle</word>
+        <word gender="M" plural="écureuils">écureuil</word>
+        <word gender="M" plural="éléphants de mer">éléphant de mer</word>
+        <word gender="F" plural="endives">endive</word>
+        <word gender="M" plural="entonnoirs">entonnoir</word>
+        <word gender="M" plural="épluche-légumes">épluche-légumes</word>
+        <word gender="F" plural="éponges">éponge</word>
+        <word gender="M" plural="épouvantails">épouvantail</word>
+        <word gender="F" plural="éprouvettes">éprouvette</word>
+        <word gender="M" plural="escalators">escalator</word>
+        <word gender="M" plural="escargots">escargot</word>
+        <word gender="F" plural="étagères">étagère</word>
+        <word gender="M" plural="fers à repasser">fer à repasser</word>
+        <word gender="M" plural="flans">flan</word>
+        <word gender="M" plural="fours">four</word>
+        <word gender="F" plural="fourchettes">fourchette</word>
+        <word gender="M" plural="frigos">frigo</word>
+        <word gender="F" plural="frites">frite</word>
+        <word gender="F" plural="friteuses">friteuse</word>
+        <word gender="M" plural="gâteaux">gâteau</word>
+        <word gender="F" plural="girafes">girafe</word>
+        <word gender="F" plural="gouttières">gouttière</word>
+        <word gender="F" plural="grenouilles">grenouille</word>
+        <word gender="M" plural="grille-pains">grille-pain</word>
+        <word gender="M" plural="gruyère">gruyère</word>
+        <word gender="M" plural="hachis parmentier">hachis parmentier</word>
+        <word gender="M" plural="hamsters">hamster</word>
+        <word gender="M" plural="haricots">haricot</word>
+        <word gender="M" plural="hélicoptères">hélicoptère</word>
+        <word gender="M" plural="hippocampes">hippocampe</word>
+        <word gender="M" plural="hippodromes">hippodrome</word>
+        <word gender="M" plural="hollandais">hollandais</word>
+        <word gender="M" plural="hommes-sandwiches">homme-sandwich</word>
+        <word gender="F" plural="horloges">horloge</word>
+        <word gender="F" plural="huîtres">huître</word>
+        <word gender="M" plural="huissiers de justice">huissier de justice</word>
+        <word gender="M" plural="jardiniers">jardinier</word>
+        <word gender="M" plural="joints d'étanchéité">joint d'étanchéité</word>
+        <word gender="M" plural="kangourous">kangourou</word>
+        <word gender="M" plural="kebabs">kebab</word>
+        <word gender="M" plural="klaxons">klaxon</word>
+        <word gender="M" plural="lamas">lama</word>
+        <word gender="M" plural="lampadaires">lampadaire</word>
+        <word gender="F" plural="langoustines">langoustine</word>
+        <word gender="M" plural="lapins">lapin</word>
+        <word gender="M" plural="lavabos">lavabo</word>
+        <word gender="M" plural="lave-vaisselle">lave-vaisselle</word>
+        <word gender="M" plural="lémuriens">lémurien</word>
+        <word gender="M" plural="léopards">léopard</word>
+        <word gender="F" plural="libellules">libellule</word>
+        <word gender="F" plural="limaces">limace</word>
+        <word gender="F" plural="louches">louche</word>
+        <word gender="F" plural="loutres">loutre</word>
+        <word gender="M" plural="magnétoscopes">magnétoscope</word>
+        <word gender="F" plural="majorettes">majorette</word>
+        <word gender="F" plural="marmottes">marmotte</word>
+        <word gender="M" plural="marteaux">marteau</word>
+        <word gender="M" plural="matelas pneumatiques">matelas pneumatique</word>
+        <word gender="F" plural="merguez">merguez</word>
+        <word gender="M" plural="micro-ondes">micro-ondes</word>
+        <word gender="M" plural="minitels">minitel</word>
+        <word gender="M" plural="moines">moine</word>
+        <word gender="F" plural="moissonneuses-batteuses">moissonneuse-batteuse</word>
+        <word gender="M" plural="monte-charges">monte-charge</word>
+        <word gender="F" plural="montgolfières">montgolfière</word>
+        <word gender="M" plural="morts-vivants">mort-vivant</word>
+        <word gender="F" plural="morues">morue</word>
+        <word gender="M" plural="moteurs de 4L">moteur de 4L</word>
+        <word gender="F" plural="motocyclettes">motocyclette</word>
+        <word gender="F" plural="mouches">mouche</word>
+        <word gender="M" plural="moulins à vent">moulin à vent</word>
+        <word gender="F" plural="moumoutes">moumoute</word>
+        <word gender="M" plural="moustiques">moustique</word>
+        <word gender="M" plural="moutons">mouton</word>
+        <word gender="F" plural="multiprises">multiprise</word>
+        <word gender="M" plural="nains">nain</word>
+        <word gender="F" plural="noix de coco">noix de coco</word>
+        <word gender="M" plural="oeufs au plat">oeuf au plat</word>
+        <word gender="F" plural="omelettes">omelette</word>
+        <word gender="M" plural="orangs-outans">orang-outan</word>
+        <word gender="M" plural="ornithologues">ornithologue</word>
+        <word gender="M" plural="ornithorynques">ornithorynque</word>
+        <word gender="M" plural="ostréiculteurs">ostréiculteur</word>
+        <word gender="M" plural="paillassons">paillasson</word>
+        <word gender="M" plural="palmiers">palmier</word>
+        <word gender="M" plural="pancakes">pancake</word>
+        <word gender="M" plural="panneaux publicitaires">panneau publicitaire</word>
+        <word gender="M" plural="parapluies">parapluie</word>
+        <word gender="M" plural="parcmètres">parcmètre</word>
+        <word gender="M" plural="pare-brises">pare-brise</word>
+        <word gender="M" plural="parpaings">parpaing</word>
+        <word gender="F" plural="pastèques">pastèque</word>
+        <word gender="M" plural="pâtés en croûte">pâté en croûte</word>
+        <word gender="F" plural="pelles">pelle</word>
+        <word gender="F" plural="pelleteuses">pelleteuse</word>
+	<word gender="M" plural="pèse-personnes">pèse-personne</word>
+        <word gender="M" plural="petits suisses">petit suisse</word>
+        <word gender="M" plural="philosophes">philosophe</word>
+        <word gender="M" plural="pigeons voyageurs">pigeon voyageur</word>
+        <word gender="M" plural="pingouins">pingouin</word>
+        <word gender="M" plural="pissenlits">pissenlit</word>
+        <word gender="M" plural="pizzaïolos">pizzaïolo</word>
+        <word gender="M" plural="placards">placard</word>
+        <word gender="F" plural="planches à repasser">planche à repasser</word>
+        <word gender="M" plural="plats à gratin">plat à gratin</word>
+        <word gender="M" plural="pneus">pneu</word>
+        <word gender="F" plural="poêles à frire">poêle à frire</word>
+        <word gender="M" plural="poireaux">poireau</word>
+        <word gender="F" plural="pommes de terre">pomme de terre</word>
+        <word gender="M" plural="pompiers">pompier</word>
+        <word gender="M" plural="poneys">poney</word>
+        <word gender="F" plural="portes">porte</word>
+        <word gender="M" plural="porte-avions">porte-avion</word>
+        <word gender="M" plural="porte-manteaux">porte-manteau</word>
+        <word gender="M" plural="poteaux">poteau</word>
+        <word gender="M" plural="poulets">poulet</word>
+        <word gender="M" plural="poulpes">poulpe</word>
+        <word gender="M" plural="poussins">poussin</word>
+        <word gender="F" plural="poutres">poutre</word>
+        <word gender="F" plural="quenelles">quenelle</word>
+        <word gender="M" plural="radiateurs">radiateur</word>
+        <word gender="M" plural="radis">radis</word>
+        <word gender="M" plural="rateaux">rateau</word>
+        <word gender="M" plural="ratons-laveurs">raton-laveur</word>
+        <word gender="M" plural="raviolis">ravioli</word>
+        <word gender="M" plural="réacteurs nucléaires">réacteur nucléaire</word>
+        <word gender="M" plural="reblochons">reblochon</word>
+        <word gender="M" plural="réfrigérateurs">réfrigérateur</word>
+        <word gender="M" plural="rétroviseurs">rétroviseur</word>
+        <word gender="M" plural="réverbères">réverbère</word>
+        <word gender="M" plural="rhinocéros">rhinocéros</word>
+        <word gender="M" plural="rideaux de douche">rideau de douche</word>
+        <word gender="M" plural="robinets">robinet</word>
+        <word gender="M" plural="robots">robot</word>
+        <word gender="M" plural="rouleaux à pâtisserie">rouleau à pâtisserie</word>
+        <word gender="M" plural="salamis">salami</word>
+        <word gender="M" plural="sandwiches">sandwich</word>
+        <word gender="M" plural="sangliers">sanglier</word>
+        <word gender="M" plural="sapins">sapin</word>
+        <word gender="F" plural="sardines">sardine</word>
+        <word gender="F" plural="saucisses">saucisse</word>
+        <word gender="M" plural="saucissons">saucisson</word>
+        <word gender="F" plural="sauterelles">sauterelle</word>
+        <word gender="M" plural="sécateurs">sécateur</word>
+        <word gender="F" plural="serpillières">serpillière</word>
+        <word gender="M" plural="sombreros">sombrero</word>
+        <word gender="F" plural="soupières">soupière</word>
+        <word gender="M" plural="sous-marins">sous-marin</word>
+        <word gender="F" plural="spatules">spatule</word>
+        <word gender="M" plural="sumos">sumo</word>
+        <word gender="M" plural="suppositoires">suppositoire</word>
+        <word gender="F" plural="tables basses">table basse</word>
+        <word gender="M" plural="tabourets">tabouret</word>
+        <word gender="M" plural="taille-crayons">taille-crayon</word>
+        <word gender="F" plural="tanches">tanche</word>
+        <word gender="M" plural="taureaux">taureau</word>
+        <word gender="F" plural="tartiflettes">tartiflette</word>
+        <word gender="F" plural="tasses à café">tasse à café</word>
+        <word gender="F" plural="télécommandes">télécommande</word>
+        <word gender="M" plural="témoins de Jéhovah">témoin de Jéhovah</word>
+        <word gender="F" plural="terrines forestières">terrine forestière</word>
+        <word gender="M" plural="thermomètres">thermomètre</word>
+        <word gender="M" plural="tiramisus">tiramisu</word>
+        <word gender="M" plural="tiroirs">tiroir</word>
+        <word gender="M" plural="tire-fesses">tire-fesses</word>
+        <word gender="F" plural="théières">théière</word>
+        <word gender="F" plural="tondeuses à gazon">tondeuse à gazon</word>
+        <word gender="M" plural="tonneaux">tonneau</word>
+        <word gender="F" plural="touillettes">touillette</word>
+        <word gender="M" plural="tournevis">tournevis</word>
+        <word gender="M" plural="tracteurs">tracteur</word>
+        <word gender="M" plural="tractopelles">tractopelle</word>
+        <word gender="F" plural="tranches de jambon">tranche de jambon</word>
+        <word gender="M" plural="transats">transat</word>
+        <word gender="M" plural="triporteurs">triporteur</word>
+        <word gender="F" plural="tronçonneuses">tronçonneuse</word>
+        <word gender="F" plural="trotinettes">trotinette</word>
+        <word gender="M" plural="troubadours">troubadour</word>
+        <word gender="M" plural="troupeaux de vaches">troupeau de vaches</word>
+        <word gender="F" plural="truelles">truelle</word>
+        <word gender="F" plural="truites">truite</word>
+        <word gender="F" plural="tuiles">tuile</word>
+        <word gender="M" plural="tuyaux d'arrosage">tuyau d'arrosage</word>
+        <word gender="M" plural="unijambistes">unijambiste</word>
+        <word gender="F" plural="vaches">vache</word>
+        <word gender="F" plural="valises">valise</word>
+        <word gender="M" plural="ventilateurs">ventilateur</word>
+        <word gender="M" plural="vérandas">vérandas</word>
+        <word gender="M" plural="vikings">viking</word>
+        <word gender="M" plural="yaourts">yaourt</word>
+        <word gender="M" plural="zèbres">zèbre</word>
+        <word gender="M" plural="zébus">zébu</word>
+    </nom>
+    <nompropre>
+        <word>Alain Souchon</word>
+        <word>Arnaud Montebourg</word>
+        <word>Barrack Obama</word>
+        <word>Batman</word>
+        <word>Benjamin Castaldi</word>
+        <word>Bernard Minet</word>
+        <word>Bob l'Eponge</word>
+        <word>Brigitte Bardot</word>
+        <word>Captain America</word>
+        <word>Carla Bruni</word>
+        <word>Chantal Goya</word>
+	<word>Charles De Gaulle</word>
+        <word>Christophe Colomb</word>
+        <word>Christophe Lambert</word>
+        <word>Chuck Norris</word>
+        <word>Dark Vador</word>
+        <word>Dominique Strauss-Khan</word>
+        <word>Dora l'exploratrice</word>
+        <word>Eric Cantona</word>
+        <word>Francis Cabrel</word>
+        <word>Francis Lalanne</word>
+        <word>François Hollande</word>
+	<word>Gaston Lagaffe</word>
+	<word>George Clooney</word>
+	<word>George Moustaki</word>
+	<word>Gérard Depardieu</word>
+	<word>Gilbert Montagné</word>
+	<word>l'Incroyable Hulk</word>
+	<word>l'Inspecteur Derrick</word>
+	<word>Jackie Chan</word>
+	<word>Jacques Chirac</word>
+	<word>Jacques Dutronc</word>
+	<word>Jean-Claude Van Damme</word>
+	<word>Jean-Luc Delarue</word>
+	<word>Jean-Marc Ayrault</word>
+	<word>Jean-Pierre Foucault</word>
+	<word>Jean-Pierre Pernault</word>
+	<word>Johnny Depp</word>
+	<word>Johnny Hallyday</word>
+	<word>José Bové</word>
+	<word>Josiane Balasko</word>
+	<word>Julien Lepers</word>
+	<word>Justin Bieber</word>
+	<word>Laurent Ruquier</word>
+	<word>Laurent Voulzy</word>
+	<word>Lionel Jospin</word>
+	<word>Manuel Valls</word>
+	<word>Michel Drucker</word>
+	<word>Michel Sardou</word>
+	<word>Michael Jackson</word>
+	<word>Mimie Mathy</word>
+	<word>Mireille Mathieu</word>
+	<word>Mister Bean</word>
+	<word>Mylène Farmer</word>
+	<word>Nana Mouskouri</word>
+	<word>Nelson Monfort</word>
+	<word>Nicolas Sarkozy</word>
+	<word>Patrick Bruel</word>
+	<word>Pikachu</word>
+	<word>Robert de Niro</word>
+	<word>Robert Hue</word>
+	<word>Roselyne Bachelot</word>
+	<word>Serge Lama</word>
+	<word>Spiderman</word>
+	<word>Victor Hugo</word>
+	<word>Yannick Noah</word>
+    </nompropre>
+    <verbe>
+        <word inf="abandonner">j'abandonne</word>
+        <word inf="abriter">j'abrite</word>
+        <word inf="accrocher">j'accroche</word>
+        <word inf="acheter">j'achète</word>
+        <word inf="adopter">j'adopte</word>
+        <word inf="affronter">j'affronte</word>
+        <word inf="agrafer">j'agrafe</word>
+        <word inf="agrandir">j'agrandis</word>
+        <word inf="agresser">j'agresse</word>
+        <word inf="allumer">j'allume</word>
+        <word inf="aplatir">j'aplatis</word>
+        <word inf="apprivoiser">j'apprivoise</word>
+        <word>j'appuie sur</word>
+        <word inf="arracher">j'arrache</word>
+        <word inf="arrêter">j'arrête</word>
+        <word inf="arroser">j'arrose</word>
+	<word inf="asperger">j'asperge</word>
+	<word inf="aspirer">j'aspire</word>
+	<word inf="assiéger">j'assiège</word>
+	<word inf="assomer">j'assome</word>
+	<word inf="attraper">j'attrape</word>
+	<word inf="attaquer">j'attaque</word>
+	<word inf="avaler">j'avale</word>
+        <word inf="bétonner">je bétonne</word>
+        <word inf="brancher">je branche</word>
+        <word inf="broyer">je broie</word>
+        <word inf="brûler">je brûle</word>
+        <word inf="caresser">je caresse</word>
+        <word inf="chasser">je chasse</word>
+        <word inf="chatouiller">je chatouille</word>
+        <word inf="chevaucher">je chevauche</word>
+        <word inf="cloner">je clone</word>
+        <word inf="conduire">je conduis</word>
+        <word inf="congeler">je congèle</word>
+        <word inf="construire">je construis</word>
+        <word>je couche avec</word>
+        <word>je crache sur</word>
+        <word>je creuse un trou dans</word>
+        <word inf="critiquer">je critique</word>
+        <word inf="cuisiner">je cuisine</word>
+        <word>je danse avec</word>
+        <word inf="déballer">je déballe</word>
+        <word inf="déboucher">je débouche</word>
+        <word inf="décapsuler">je décapsule</word>
+        <word inf="déchirer">je déchire</word>
+        <word inf="décoller">je décolle</word>
+        <word inf="décongeler">je décongèle</word>
+        <word inf="décorer">je décore</word>
+        <word inf="découper">je découpe</word>
+        <word inf="décrocher">je décroche</word>
+        <word inf="défenestrer">je défenestre</word>
+        <word inf="démolir">je démolis</word>
+        <word inf="démonter">je démonte</word>
+        <word inf="démouler">je démoule</word>
+        <word inf="dépanner">je dépanne</word>
+        <word inf="détruire">je détruis</word>
+        <word inf="digérer">je digère</word>
+        <word>je dîne avec</word>
+        <word>je discute avec</word>
+        <word>je dors avec</word>
+        <word inf="draguer">je drague</word>
+        <word inf="éclabousser">j'éclabousse</word>
+        <word inf="écraser">j'écrase</word>
+        <word inf="effrayer">j'effraie</word>
+        <word inf="électrocuter">j'électrocute</word>
+        <word inf="embaucher">j'embauche</word>
+        <word inf="embêter">j'embête</word>
+        <word inf="embrasser">j'embrasse</word>
+        <word inf="empaler">j'empale</word>
+        <word inf="endormir">j'endors</word>
+        <word inf="enfermer">j'enferme</word>
+        <word>j'envoie un fax à</word>
+        <word inf="éplucher">j'épluche</word>
+        <word inf="épouser">j'épouse</word>
+        <word inf="escalader">j'escalade</word>
+        <word>j'éternue sur</word>
+        <word inf="étirer">j'étire</word>
+        <word inf="exploiter">j'exploite</word>
+        <word inf="examiner">j'examine</word>
+        <word inf="fabriquer">je fabrique</word>
+        <word inf="faire bouillir">je fais bouillir</word>
+        <word inf="faire chanter">je fais chanter</word>
+        <word inf="faire cuire">je fais cuire</word>
+        <word inf="faire disparaître">je fais disparaître</word>
+	<word>je fais du vélo sur</word>
+	<word inf="faire évader">je fais évader</word>
+        <word inf="faire exploser">je fais exploser</word>
+        <word inf="faire fondre">je fais fondre</word>
+        <word inf="faire frire">je fais frire</word>
+        <word inf="faire mijoter">je fais mijoter</word>
+        <word inf="faire pédaler">je fais pédaler</word>
+        <word inf="faire ronronner">je fais ronronner</word>
+        <word inf="faire rôtir">je fais rôtir</word>
+        <word inf="faire rougir">je fais rougir</word>
+        <word inf="faire sécher">je fais sécher</word>
+        <word inf="faire tourner">je fais tourner</word>
+        <word>je fais une dédicace à</word>
+        <word inf="forger">je forge</word>
+        <word inf="frapper">je frappe</word>
+        <word inf="fouetter">je fouette</word>
+        <word inf="fumer">je fume</word>
+        <word>je glisse sur</word>
+        <word inf="griffer">je griffe</word>
+        <word inf="grignoter">je grignote</word>
+        <word inf="illuminer">j'illumine</word>
+        <word inf="imiter">j'imite</word>
+        <word inf="imprimer">j'imprime</word>
+        <word inf="inonder">j'inonde</word>
+        <word inf="insulter">j'insulte</word>
+        <word inf="interviewer">j'interviewe</word>
+        <word inf="inviter">j'invite</word>
+        <word>je jette des cailloux sur</word>
+        <word>je jongle avec</word>
+        <word inf="kidnapper">je kidnappe</word>
+        <word inf="lancer">je lance</word>
+        <word inf="lécher">je lèche</word>
+        <word inf="libérer">je libère</word>
+        <word inf="ligoter">je ligote</word>
+        <word inf="louer">je loue</word>
+        <word>je m'assois sur</word>
+        <word inf="mâcher">je mâche</word>
+        <word inf="manger">je mange</word>
+        <word inf="maquiller">je maquille</word>
+        <word>je me douche avec</word>
+	<word>je me fais attaquer par</word>
+        <word>je me fais greffer</word>
+	<word>je me fais livrer</word>
+        <word>je mets de la moutarde sur</word>
+	<word inf="mimer">je mime</word>
+        <word>je m'installe sur</word>
+        <word>je monte sur</word>
+        <word>je montre mes orteils à</word>
+        <word inf="mordiller">je mordille</word>
+        <word inf="mouiller">je mouille</word>
+        <word>je négocie avec</word>
+        <word inf="nettoyer">je nettoie</word>
+        <word inf="noyer">je noie</word>
+        <word inf="pêcher">je pêche</word>
+        <word>j'obéis à</word>
+        <word inf="percuter">je percute</word>
+        <word inf="persécuter">je persécute</word>
+        <word inf="photocopier">je photocopie</word>
+        <word inf="piétiner">je piétine</word>
+        <word inf="picorer">je picore</word>
+        <word inf="piloter">je pilote</word>
+        <word>je plaisante avec</word>
+        <word inf="poursuivre">je poursuis</word>
+        <word inf="promener">je promène</word>
+        <word inf="prostituer">je prostitue</word>
+        <word inf="provoquer">je provoque</word>
+        <word>je raconte une blague à</word>
+        <word inf="ramasser">je ramasse</word>
+        <word inf="ranger">je range</word>
+        <word inf="ratisser">je ratisse</word>
+        <word inf="réchauffer">je réchauffe</word>
+        <word inf="remuer">je remue</word>
+        <word inf="renverser">je renverse</word>
+        <word inf="renvoyer">je renvoie</word>
+        <word inf="réparer">je répare</word>
+        <word inf="repasser">je repasse</word>
+        <word inf="repeindre">je repeins</word>
+        <word>je roule sur</word>
+        <word inf="savonner">je savonne</word>
+        <word inf="scier">je scie</word>
+        <word inf="secouer">je secoue</word>
+        <word inf="séquestrer">je séquestre</word>
+	<word>je serre la main à</word>
+        <word inf="siffler">je siffle</word>
+        <word inf="siroter">je sirote</word>
+        <word inf="soudoyer">je soudoie</word>
+        <word>je souffle sur</word>
+        <word>je surfe sur</word>
+        <word inf="tabasser">je tabasse</word>
+        <word inf="taquiner">je taquine</word>
+        <word inf="télécharger">je télécharge</word>
+        <word>je téléphone à</word>
+        <word>je tire sur</word>
+        <word inf="tire-bouchonner">je tire-bouchonne</word>
+        <word inf="toiletter">je toilette</word>
+        <word inf="torturer">je torture</word>
+        <word>je tourne un documentaire sur</word>
+        <word>je travaille pour</word>
+        <word inf="tricoter">je tricote</word>
+        <word inf="tutoyer">je tutoie</word>
+        <word inf="vomir">je vomis sur</word>
+    </verbe>
+    <nomspecial>
+        <word>apiculteur slovaque</word>
+        <word>aspirateur rouge</word>
+        <word>assortiment de charcuterie</word>
+        <word>aubergiste péruvien</word>
+        <word>bac à glacons</word>
+        <word>bateau mouche</word>
+        <word>batteur à homards</word>
+        <word>bidon d'eau de javel</word>
+        <word>bocal à poissons</word>
+        <word>boeuf bourguignon</word>
+        <word>bottes en caoutchouc</word>
+	<word>brandade de morue</word>
+        <word>brochette de poulet</word>
+        <word>brosse à dents électrique</word>
+        <word>brouette à essence</word>
+        <word>couteau de cuisine</word>
+        <word>cactus gonflable</word>
+        <word>cage à oiseaux</word>
+        <word>camembert jaune</word>
+        <word>camping acrobatique</word>
+        <word>canard en plastique</word>
+        <word>caravane pliante</word>
+        <word>casserole de ratatouille</word>
+        <word>champignon hallucinogène</word>
+        <word>charette de harengs</word>
+        <word>chauffagiste animalier</word>
+        <word>chemise hawaienne</word>
+        <word>choucroute burger</word>
+        <word>classeur à frites</word>
+        <word>clavicule malgache</word>
+        <word>clef à molette</word>
+        <word>crème pâtissière</word>
+        <word>cube à trois faces</word>
+	<word>cuisinière électrique</word>
+        <word>cuvette de WC savoyards</word>
+        <word>décapsuleur à loutres</word>
+        <word>démonstration de ski nautique</word>
+        <word>dindon polygame</word>
+        <word>double pastis</word>
+        <word>drapeau italien</word>
+        <word>dresseur de pianos</word>
+        <word>endive à moustaches</word>
+        <word>escargot de Bourgogne</word>
+        <word>exhibitionniste musical</word>
+        <word>fabricant de moquette</word>
+        <word>filet de maquereau à la moutarde</word>
+        <word>fourchette à dromadaire</word>
+        <word>frein hydraulique</word>
+        <word>frigo qui court</word>
+	<word>fromage de chaise</word>
+        <word>garagiste pour fromage</word>
+        <word>gigot d'agneau</word>
+        <word>goéland des montagnes</word>
+        <word>grille de coloriage</word>
+        <word>handball sur glace</word>
+        <word>imprimante à pizzas</word>
+        <word>karaoké synchronisé</word>
+        <word>lampe à pétrole</word>
+        <word>loutre toxicomane</word>
+        <word>madeleine à la fraise</word>
+        <word>ménestrel volant</word>
+        <word>moissonneuse à lapin</word>
+        <word>moniteur de poney</word>
+        <word>moonwalk sur gazon</word>
+        <word>moule à cake</word>
+        <word>nain mexicain en kilt</word>
+        <word>omoplate de pakistanais</word>
+        <word>papier tue-mouche</word>
+        <word>parpaing australien</word>
+        <word>parquet flottant</word>
+        <word>passoire mexicaine</word>
+        <word>pâté à roulettes</word>
+        <word>pelle à gateau</word>
+        <word>pelleteuse en grève</word>
+        <word>permis de chasse</word>
+        <word>petit canaillou</word>
+        <word>petits dés de viande</word>
+        <word>pince-monseigneur</word>
+        <word>pizzeria birmane</word>
+        <word>planche à pain</word>
+        <word>plantation de chaises</word>
+        <word>plaquette de beurre</word>
+        <word>plongeur en métallurgie</word>
+        <word>poêle à frire</word>
+        <word>poignée de porte</word>
+        <word>porte de placard</word>
+        <word>pot de mayonnaise</word>
+        <word>poteau electrique</word>
+        <word>poulet basquaise</word>
+        <word>professeur de portugais</word>
+        <word>rateau automatique</word>
+        <word>réchauffement climatique</word>
+        <word>renard congolais</word>
+        <word>revue de jardinage</word>
+        <word>sabot bavarois</word>
+        <word>sandwich jambon-cornichon</word>
+        <word>saucisse de Francfort</word>
+        <word>scie circulaire</word>
+        <word>sculpture sur haricot rouge</word>
+        <word>service à gouda</word>
+        <word>short de combat</word>
+        <word>steak au grill</word>
+        <word>tabatière anatomique</word>
+        <word>tasse à pot-au-feu</word>
+        <word>tourniquet corse</word>
+        <word>tourte du jardin</word>
+        <word>tranche de fer à repasser</word>
+        <word>trombonne à rayures</word>
+        <word>trotinette turquoise</word>
+        <word>tuning sur Fiat Punto</word>
+        <word>usine de couscous</word>
+        <word>vache qui rit</word>
+        <word>volets en bois</word>
+    </nomspecial>
+</resources>

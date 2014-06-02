@@ -15,29 +15,59 @@ char *capt(char *str) {
   return (str);
 }
 
+void kamoulox_t1_part(int turn, s_kml *kml) {
+  int r1;
+  char *v;
+
+  if ((rand() % 5) == 2) {
+    /* Avec nompropre */
+    v = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
+    printf("%s %s", turn == 1 ? capt(v) : v, 
+	   kml->kmlcat->nompropre[rand() % kml->kmlcat->l_nompropre]);
+  }
+  else {
+    /* Avec nom */
+    r1 = rand() % kml->kmlcat->l_nom;
+    v = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
+    printf("%s %s %s", turn == 1 ? capt(v) : v,
+	   kml->kmlcat->gender[r1] == 'M' ? "un" : "une", 
+	   kml->kmlcat->nom[r1]);
+    /* On rajoute un complement ? */
+    /* if ((rand() % 4) == 2) { */
+    /* printf(" %s", "complement");       */
+    /* } */
+  }
+} 
+
+/* Premier type de Kamoulox : je verbe un nom... */
+int kamoulox_t1(s_kml *kml) {
+  kamoulox_t1_part(1, kml);
+  printf(" et ");
+  kamoulox_t1_part(2, kml);
+  printf(".\n");
+  return (SUCCESS);
+}
+
+/* Second type de Kamoulox : nomspecial et nomspecial */
+int kamoulox_t2(s_kml *kml) {
+  printf("%s et %s.\n",
+	 capt(kml->kmlcat->nomspecial[rand() % kml->kmlcat->l_nomspecial]),
+	 kml->kmlcat->nomspecial[rand() % kml->kmlcat->l_nomspecial]);
+  return (SUCCESS);
+}
+
 int kamoulox(s_kml *kml) {
-  int r;
-  char *n1, *n2;
-  char g1, g2;
-  char *v1, *v2;
+  /* Choix du type de phrase (type 1 ou 2) */
+  if ((rand() % 5) == 2)
+    return kamoulox_t2(kml);
+  return kamoulox_t1(kml);
+}
 
-  r = rand() % kml->kmlcat->l_nom;
-  n1 = kml->kmlcat->nom[r];
-  g1 = kml->kmlcat->gender[r];
-  v1 = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
-  if (!n1 || !g1 || !v1)
-    return (FAILURE);
+int kamounom(s_kml *kml) {
+  char* kamoustr;
 
-  r = rand() % kml->kmlcat->l_nom;
-  n2 = kml->kmlcat->nom[r];
-  g2 = kml->kmlcat->gender[r];
-  v2 = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
-  if (!n2 || !g2 || !v2)
-    return (FAILURE);
-
-  printf("%s %s %s et %s %s %s.\n", 
-	 capt(v1), g1 == 'M' ? "un" : "une", n1, 
-	 v2, g2 == 'M' ? "un" : "une", n2);
+  kamoustr = "KAMOUNOM !";
+  kml = kml;
   return (SUCCESS);
 }
 

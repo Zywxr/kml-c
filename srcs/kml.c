@@ -199,6 +199,8 @@ int main(int ac, char **av) {
   kmlfct = NULL;
   if (ac == 1)
     kmlfct = &kamoulox;
+  else if (ac == 2 && !strcmp(av[1], "kamounom"))
+    kmlfct = &kamounom;
   else if (ac == 2 && !strcmp(av[1], "kamouscuse"))
     kmlfct = &kamouscuse;
   else if (ac == 2 && !strcmp(av[1], "kamousulte"))
@@ -212,6 +214,7 @@ int main(int ac, char **av) {
     free_xml(&kml);
     return (error(E_XML_GEN, XML_FILE));
   }
+  srand(getpid());
   result = (*kmlfct)(kml);
   free_xml(&kml);
   return (result);

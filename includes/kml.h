@@ -39,6 +39,7 @@ typedef struct KML {
 } s_kml;
 
 int kamoulox(s_kml*);
+int kamounom(s_kml*);
 int kamouscuse(s_kml*);
 int kamousulte(s_kml*);
 

@@ -5,7 +5,7 @@
 int error(char*, char*);
 
 /*** ERROR MESSAGES ***/
-# define USAGE     "Usage: ./kamoulox [kamouscuse | kamousulte]"
+# define USAGE     "Usage: ./kamoulox [kamounom|kamouscuse|kamousulte]"
 # define E_MALLOC  "Could not allocate"
 # define E_XML_GEN "Could not parse XML file"
 # define E_XML_NAM "Empty filename"

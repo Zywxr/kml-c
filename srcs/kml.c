@@ -26,9 +26,11 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
     f = (char*)xmlGetProp(node, (xmlChar*)"f");
     if (!f)
       f = strdup(m);
-    kml->kmlcat->comp_m[kml->kmlcat->l_comp] = m;
-    kml->kmlcat->comp_f[kml->kmlcat->l_comp] = f != NULL ? f : "";
-    kml->kmlcat->l_comp++;
+    f = f != NULL ? f : "";
+    kml->kmlcat->comp_m->list[kml->kmlcat->comp_m->len] = m;
+    kml->kmlcat->comp_f->list[kml->kmlcat->comp_f->len] = f;
+    kml->kmlcat->comp_m->len++;
+    kml->kmlcat->comp_f->len++;
   }
 }
 
@@ -52,15 +54,17 @@ void set_category(s_kml *kml, char *cat) {
 void append(s_kml *kml, char *content) {
 
   if (kml->cat == NOM)
-    kml->kmlcat->nom[kml->kmlcat->l_nom++] = (void*)content;
+    kml->kmlcat->nom->list[kml->kmlcat->nom->len++] = (void*)content;
   else if (kml->cat == NOMPROPRE)
-    kml->kmlcat->nompropre[kml->kmlcat->l_nompropre++] = (void*)content;
+    kml->kmlcat->nompropre->list[kml->kmlcat->nompropre->len++]
+      = (void*)content;
   else if (kml->cat == NOMSPE)
-    kml->kmlcat->nomspecial[kml->kmlcat->l_nomspecial++] = (void*)content;
+    kml->kmlcat->nomspecial->list[kml->kmlcat->nomspecial->len++]
+      = (void*)content;
   else if (kml->cat == VERBE)
-    kml->kmlcat->verbe[kml->kmlcat->l_verbe++] = (void*)content;
+    kml->kmlcat->verbe->list[kml->kmlcat->verbe->len++] = (void*)content;
   else if (kml->cat == PRENOM)
-    kml->kmlcat->prenom[kml->kmlcat->l_prenom++] = (void*)content;
+    kml->kmlcat->prenom->list[kml->kmlcat->prenom->len++] = (void*)content;
 }
 
 void store_kml(s_kml* kml, xmlNodePtr node) {
@@ -90,11 +94,14 @@ void store_kml(s_kml* kml, xmlNodePtr node) {
   }
 }
 
-int init_category(char **category) {
+int init_category(s_kmllist *category) {
   int ct;
 
+  if ((category->list = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
+    return (FAILURE);
+  category->len = 0;
   for (ct = 0; ct < MAX_SIZE; ct++)
-    category[ct] = NULL;
+    category->list[ct] = NULL;
   return (SUCCESS);
 }
 
@@ -107,83 +114,77 @@ int init_kml(s_kml **kml) {
 
   if (((*kml)->kmlcat = malloc(sizeof(s_kmlcat))) == NULL)
     return (error(E_MALLOC, "kmlcat"));
-  (*kml)->kmlcat->nom = NULL;
-  (*kml)->kmlcat->gender = NULL;
-  (*kml)->kmlcat->nompropre = NULL;
-  (*kml)->kmlcat->nomspecial = NULL;
-  (*kml)->kmlcat->comp_m = NULL;
-  (*kml)->kmlcat->comp_f = NULL;
-  (*kml)->kmlcat->verbe = NULL;
-  /* (*kml)->kmlcat->prenom = NULL; */
-
-  if (((*kml)->kmlcat->nom = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
+  if (((*kml)->kmlcat->nom = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: nom"));
-  (*kml)->kmlcat->l_nom = 0;
-  init_category((*kml)->kmlcat->nom);
+  if (((*kml)->kmlcat->nompropre = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: nompropre"));
+  if (((*kml)->kmlcat->nomspecial = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: nomspecial"));
+  if (((*kml)->kmlcat->comp_m = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_m"));
+  if (((*kml)->kmlcat->comp_f = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_f"));
+  if (((*kml)->kmlcat->verbe = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: verbe"));
+  if (((*kml)->kmlcat->prenom = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: prenom"));
+  (*kml)->kmlcat->nom->list = NULL;
+  (*kml)->kmlcat->gender = NULL;
+  (*kml)->kmlcat->nompropre->list = NULL;
+  (*kml)->kmlcat->nomspecial->list = NULL;
+  (*kml)->kmlcat->comp_m->list = NULL;
+  (*kml)->kmlcat->comp_f->list = NULL;
+  (*kml)->kmlcat->verbe->list = NULL;
+  (*kml)->kmlcat->prenom->list = NULL;
 
+  if (init_category((*kml)->kmlcat->nom) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: nom"));
   if (((*kml)->kmlcat->gender = malloc(MAX_SIZE)) == NULL)
     return (error(E_MALLOC, "kmlcat: gender"));
   memset((*kml)->kmlcat->gender, 0, MAX_SIZE);
-
-  if (((*kml)->kmlcat->nompropre = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->nompropre) == FAILURE)
     return (error(E_MALLOC, "kmlcat: nompropre"));
-  (*kml)->kmlcat->l_nompropre = 0;
-  init_category((*kml)->kmlcat->nompropre);
-
-  if (((*kml)->kmlcat->nomspecial = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->nomspecial) == FAILURE)
     return (error(E_MALLOC, "kmlcat: nomspecial"));
-  (*kml)->kmlcat->l_nomspecial = 0;
-  init_category((*kml)->kmlcat->nomspecial);
-
-  if (((*kml)->kmlcat->comp_m = malloc(sizeof(char*) * MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->comp_m) == FAILURE)
     return (error(E_MALLOC, "kmlcat: comp_m"));
-  (*kml)->kmlcat->l_comp = 0;
-  init_category((*kml)->kmlcat->comp_m);
-
-  if (((*kml)->kmlcat->comp_f = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->comp_f) == FAILURE)
     return (error(E_MALLOC, "kmlcat: comp_f"));
-  init_category((*kml)->kmlcat->comp_f);
-
-  if (((*kml)->kmlcat->verbe = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->verbe) == FAILURE)
     return (error(E_MALLOC, "kmlcat: verbe"));
-  (*kml)->kmlcat->l_verbe = 0;
-  init_category((*kml)->kmlcat->verbe);
-
-  if (((*kml)->kmlcat->prenom = malloc(sizeof(char*)*MAX_SIZE)) == NULL)
+  if (init_category((*kml)->kmlcat->prenom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: prenom"));
-  (*kml)->kmlcat->l_prenom = 0;
-  init_category((*kml)->kmlcat->prenom);
-
   return (SUCCESS);
 }
 
 void debug(s_kml *kml) {
   int ct;
 
-  for (ct = 0; ct < kml->kmlcat->l_nom; ct++) {
-    if (kml->kmlcat->nom[ct] != NULL)
-      printf("Nom: %s.\n", kml->kmlcat->nom[ct]);
+  for (ct = 0; ct < kml->kmlcat->nom->len; ct++) {
+    if (kml->kmlcat->nom->list[ct] != NULL)
+      printf("Nom: %s.\n", kml->kmlcat->nom->list[ct]);
   }
-  for (ct = 0; ct < kml->kmlcat->l_nompropre; ct++) {
-    if (kml->kmlcat->nompropre[ct] != NULL)
-      printf("Nompropre: %s.\n", kml->kmlcat->nompropre[ct]);
+  for (ct = 0; ct < kml->kmlcat->nompropre->len; ct++) {
+    if (kml->kmlcat->nompropre->list[ct] != NULL)
+      printf("Nompropre: %s.\n", kml->kmlcat->nompropre->list[ct]);
   }
-  for (ct = 0; ct < kml->kmlcat->l_nomspecial; ct++) {
-    if (kml->kmlcat->nomspecial[ct] != NULL)
-      printf("Nomspecial: %s.\n", kml->kmlcat->nomspecial[ct]);
+  for (ct = 0; ct < kml->kmlcat->nomspecial->len; ct++) {
+    if (kml->kmlcat->nomspecial->list[ct] != NULL)
+      printf("Nomspecial: %s.\n", kml->kmlcat->nomspecial->list[ct]);
   }
-  for (ct = 0; ct < kml->kmlcat->l_comp; ct++) {
-    if (kml->kmlcat->comp_m[ct] != NULL && kml->kmlcat->comp_f[ct] != NULL)
-      printf("Complement: %s - %s.\n", kml->kmlcat->comp_m[ct],
-	     kml->kmlcat->comp_f[ct]);
+  for (ct = 0; ct < kml->kmlcat->comp_m->len; ct++) {
+    if (kml->kmlcat->comp_m->list[ct] != NULL
+	&& kml->kmlcat->comp_f->list[ct] != NULL)
+      printf("Complement: %s - %s.\n", kml->kmlcat->comp_m->list[ct],
+	     kml->kmlcat->comp_f->list[ct]);
   }
-  for (ct = 0; ct < kml->kmlcat->l_verbe; ct++) {
-    if (kml->kmlcat->verbe[ct] != NULL)
-      printf("Verbe: %s.\n", kml->kmlcat->verbe[ct]);
+  for (ct = 0; ct < kml->kmlcat->verbe->len; ct++) {
+    if (kml->kmlcat->verbe->list[ct] != NULL)
+      printf("Verbe: %s.\n", kml->kmlcat->verbe->list[ct]);
   }
-  for (ct = 0; ct < kml->kmlcat->l_prenom; ct++) {
-    if (kml->kmlcat->prenom[ct] != NULL)
-      printf("Prenom: %s.\n", kml->kmlcat->prenom[ct]);
+  for (ct = 0; ct < kml->kmlcat->prenom->len; ct++) {
+    if (kml->kmlcat->prenom->list[ct] != NULL)
+      printf("Prenom: %s.\n", kml->kmlcat->prenom->list[ct]);
   }
 }
 
@@ -224,15 +225,22 @@ void free_xml(s_kml **kml) {
     xmlFreeDoc((*kml)->xml);
     xmlCleanupParser();
     if ((*kml)->kmlcat != NULL) {
-      free_category((*kml)->kmlcat->nom);
+      free_category((*kml)->kmlcat->nom->list);
+      free((*kml)->kmlcat->nom);
       if ((*kml)->kmlcat->gender != NULL)
       	free((*kml)->kmlcat->gender);
-      free_category((*kml)->kmlcat->nompropre);
-      free_category((*kml)->kmlcat->nomspecial);
-      free_category((*kml)->kmlcat->comp_m);
-      free_category((*kml)->kmlcat->comp_f);
-      free_category((*kml)->kmlcat->verbe);
-      free_category((*kml)->kmlcat->prenom);
+      free_category((*kml)->kmlcat->nompropre->list);
+      free((*kml)->kmlcat->nompropre);
+      free_category((*kml)->kmlcat->nomspecial->list);
+      free((*kml)->kmlcat->nomspecial);
+      free_category((*kml)->kmlcat->comp_m->list);
+      free((*kml)->kmlcat->comp_m);
+      free_category((*kml)->kmlcat->comp_f->list);
+      free((*kml)->kmlcat->comp_f);
+      free_category((*kml)->kmlcat->verbe->list);
+      free((*kml)->kmlcat->verbe);
+      free_category((*kml)->kmlcat->prenom->list);
+      free((*kml)->kmlcat->prenom);
       free((*kml)->kmlcat);
     }
     free(*kml);

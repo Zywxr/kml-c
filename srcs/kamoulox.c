@@ -37,23 +37,26 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
 
   if ((rand() % 5) == 2) {
     /* Avec nompropre */
-    v = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
+    v = kml->kmlcat->verbe->list[rand() % kml->kmlcat->verbe->len];
     printf("%s %s", turn == 1 ? capt(v) : v, 
-	   kml->kmlcat->nompropre[rand() % kml->kmlcat->l_nompropre]);
+	   kml->kmlcat->nompropre->list[rand() % 
+					kml->kmlcat->nompropre->len]);
   }
   else {
     /* Avec nom */
-    r1 = rand() % kml->kmlcat->l_nom;
-    v = kml->kmlcat->verbe[rand() % kml->kmlcat->l_verbe];
+    r1 = rand() % kml->kmlcat->nom->len;
+    v = kml->kmlcat->verbe->list[rand() % kml->kmlcat->verbe->len];
     printf("%s %s %s", turn == 1 ? capt(v) : v,
 	   kml->kmlcat->gender[r1] == 'M' ? "un" : "une", 
-	   kml->kmlcat->nom[r1]);
+	   kml->kmlcat->nom->list[r1]);
     /* On rajoute un complement ? */
     if ((rand() % 4) == 2) {
       if (kml->kmlcat->gender[r1] == 'M')
-	printf(" %s", kml->kmlcat->comp_m[rand() % kml->kmlcat->l_comp]);
+	printf(" %s", kml->kmlcat->comp_m->list[rand() %
+						kml->kmlcat->comp_m->len]);
       else
-      	printf(" %s", kml->kmlcat->comp_f[rand() % kml->kmlcat->l_comp]);
+      	printf(" %s", kml->kmlcat->comp_f->list[rand() %
+						kml->kmlcat->comp_f->len]);
     }
   }
 } 
@@ -70,8 +73,10 @@ int kamoulox_t1(s_kml *kml) {
 /* Second type de Kamoulox : nomspecial et nomspecial */
 int kamoulox_t2(s_kml *kml) {
   printf("%s et %s.\n",
-	 capt(kml->kmlcat->nomspecial[rand() % kml->kmlcat->l_nomspecial]),
-	 kml->kmlcat->nomspecial[rand() % kml->kmlcat->l_nomspecial]);
+	 capt(kml->kmlcat->nomspecial->list[rand() %
+					    kml->kmlcat->nomspecial->len]),
+	 kml->kmlcat->nomspecial->list[rand() %
+				       kml->kmlcat->nomspecial->len]);
   return (SUCCESS);
 }
 
@@ -84,8 +89,10 @@ int kamoulox(s_kml *kml) {
 
 int kamounom(s_kml *kml) {
   printf("%s %s\n",
-	 capt(kml->kmlcat->prenom[rand() % kml->kmlcat->l_prenom]),
-	 familyname(kml->kmlcat->nom[rand() % kml->kmlcat->l_nom]));
+	 capt(kml->kmlcat->prenom->list[rand() %
+					kml->kmlcat->prenom->len]),
+	 familyname(kml->kmlcat->nom->list[rand() %
+					   kml->kmlcat->nom->len]));
   return (SUCCESS);
 }
 

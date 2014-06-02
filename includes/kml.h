@@ -15,21 +15,34 @@ typedef enum {
   PRENOM
 } k_type;
 
+typedef struct KML_list {
+  char **list;
+  int len;
+} s_kmllist;
+
 typedef struct KML_cat {
-  char **nom;
-  int l_nom;
-  char *gender;
-  char **nompropre;
-  int l_nompropre;
-  char **nomspecial;
-  int l_nomspecial;
-  char **verbe;
-  int l_verbe;
-  char **comp_m;
-  char **comp_f;
-  int l_comp;
-  char **prenom;
-  int l_prenom;
+  s_kmllist *nom;
+  char      *gender;
+  s_kmllist *nompropre;
+  s_kmllist *nomspecial;
+  s_kmllist *verbe;
+  s_kmllist *comp_m;
+  s_kmllist *comp_f;
+  s_kmllist *prenom;
+  /* char **nom; */
+  /* int l_nom; */
+  /* char *gender; */
+  /* char **nompropre; */
+  /* int l_nompropre; */
+  /* char **nomspecial; */
+  /* int l_nomspecial; */
+  /* char **verbe; */
+  /* int l_verbe; */
+  /* char **comp_m; */
+  /* char **comp_f; */
+  /* int l_comp; */
+  /* char **prenom; */
+  /* int l_prenom; */
   /* FIX: Do one struct per type with list and size */
 } s_kmlcat;
 

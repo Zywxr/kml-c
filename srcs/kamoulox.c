@@ -7,16 +7,36 @@
 #include "error.h"
 #include "utils.h"
 
-char *fill(char *str) {
+char *fill(s_kml *kml, char *str) {
   /* TODO */
-  int i;
-  char *filler[] = {"un", "le", "mon",
-		    "nom", "noms", "verbe",
-		    "complement", NULL};
-  str = str;
-  for (i = 0; filler[i] != NULL; i++)
-    printf("%s\n", filler[i]);
-  return (SUCCESS);
+  unsigned int i;
+  char *filler[] = {"$nom$", "$noms$", "$un$", "$le$", "$mon$", 
+		    "$verbe$", "$complement$", NULL};
+  s_kmllist *cat;
+  int rd;
+  char gender;
+
+  gender = 'M';
+  for (i = 0; filler[i] != NULL; i++) {
+    cat = NULL;
+    if (contains(str, filler[i]) != FAILURE) {
+      if (!strcmp(filler[i], "$nom$")) {
+	cat = kml->kmlcat->nom;
+      }
+      /* else if (!strcmp(filler[i], "$un$")) */
+      /* 	str = supreplace(filler[i], gender == 'M' ? "un" : "une", str); */
+      else if (!strcmp(filler[i], "$verbe$"))
+	cat = NULL; /*kml->kmlcat->infverbe;*/
+      
+      if (cat != NULL) {
+	rd = rand() % cat->len;
+	if (!strcmp(filler[i], "$nom$"))
+	  gender = kml->kmlcat->gender[rd];
+	str = supreplace(filler[i], cat->list[rd], str);
+      }
+    }
+  }
+  return (str);
 }
 
 void kamoulox_t1_part(int turn, s_kml *kml) {
@@ -26,9 +46,9 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
   if ((rand() % 5) == 2) {
     /* Avec nompropre */
     v = kml->kmlcat->verbe->list[rand() % kml->kmlcat->verbe->len];
+    r1 = rand() % kml->kmlcat->nompropre->len;
     printf("%s %s", turn == 1 ? capt(v) : v, 
-	   kml->kmlcat->nompropre->list[rand() % 
-					kml->kmlcat->nompropre->len]);
+	   kml->kmlcat->nompropre->list[r1]);
   }
   else {
     /* Avec nom */
@@ -39,12 +59,14 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
 	   kml->kmlcat->nom->list[r1]);
     /* On rajoute un complement ? */
     if ((rand() % 4) == 2) {
-      if (kml->kmlcat->gender[r1] == 'M')
-	printf(" %s", kml->kmlcat->comp_m->list[rand() %
-						kml->kmlcat->comp_m->len]);
-      else
-      	printf(" %s", kml->kmlcat->comp_f->list[rand() %
-						kml->kmlcat->comp_f->len]);
+      if (kml->kmlcat->gender[r1] == 'M') {
+	r1 = rand() % kml->kmlcat->comp_m->len;
+	printf(" %s", kml->kmlcat->comp_m->list[r1]);
+      }
+      else {
+	r1 = rand() % kml->kmlcat->comp_f->len;
+      	printf(" %s", kml->kmlcat->comp_f->list[r1]);
+      }
     }
   }
 } 
@@ -90,12 +112,24 @@ int kamounom(s_kml *kml) {
 
 /* Kamouscuse : Prescuse, scuse1 scuse2 */
 int kamouscuse(s_kml *kml) {
+  char *s1;
+  char *s2;
+  int rd;
+
+  rd = rand() % kml->kmlcat->scuse1->len;
+  if ((s1 = fill(kml, kml->kmlcat->scuse1->list[rd])) == NULL)
+    return (error(E_ERROR, NULL));
+  rd = rand() % kml->kmlcat->scuse2->len;
+  if ((s2 = fill(kml, kml->kmlcat->scuse2->list[rd])) == NULL) {
+    free(s1);
+    return (error(E_ERROR, NULL));      
+  }
+  rd = rand() % kml->kmlcat->prescuse->len;
   printf("%s, %s %s.\n",
-	 capt(kml->kmlcat->prescuse->list[rand() %
-					  kml->kmlcat->prescuse->len]),
-	 kml->kmlcat->scuse1->list[rand() % kml->kmlcat->scuse1->len],
-	 kml->kmlcat->scuse2->list[rand() % kml->kmlcat->scuse2->len]);
-  /* fill("toto"); */
+	 capt(kml->kmlcat->prescuse->list[rd]),
+	 s1, s2);
+  free(s1);
+  free(s2);
   return (SUCCESS);
 }
 

@@ -1,10 +1,5 @@
 ##
-## Makefile for my_script in /home/vacher_c//tek2/project/my_script
-## 
-## Made by claire vacherot
-## Login   <vacher_c@epitech.net>
-## 
-## Started on  Sun Feb 13 11:34:29 2011 claire vacherot
+## Makefile for kml-c
 ##
 
 NAME	= kamoulox

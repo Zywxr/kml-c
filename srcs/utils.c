@@ -3,6 +3,48 @@
 #include "kml.h"
 #include "error.h"
 
+/* Returns either the location of search in container, or FAILURE */
+int contains(char *container, char *search) {
+  unsigned int i, c, s;
+
+  if (!container || !search || !strlen(container) || !strlen(search)
+      || strlen(container) < strlen(search))
+    return (FAILURE);
+  for (c = 0; c < strlen(container); c++) {
+    if (search[0] == container[c]) {
+      i = c;
+      for(s = 0; s < strlen(search); s++) {
+	if (search[s] != container[i])
+	  break ;
+	if (s == strlen(search) - 1)
+	  return (c); /* Return location */
+	i++;
+      }
+    }
+  }
+  return (FAILURE);
+}
+
+/* Concatene from two to three strings and stores them in dest */
+char *ccat(char *dest, char *s1, char *s2, char *s3) {
+  unsigned int i;
+  unsigned int n;
+
+  n = 0;
+  if (s1 != NULL)
+    for (i = 0; i < strlen(s1) && n < MAX_SIZE; i++)
+      dest[n++] = s1[i];
+  if (s2 != NULL)
+    for (i = 0; i < strlen(s2) && n < MAX_SIZE; i++)
+      dest[n++] = s2[i];
+  if (s3 != NULL)
+    for (i = 0; i < strlen(s3) && n < MAX_SIZE; i++)
+      dest[n++] = s3[i];
+  dest[n] = 0;
+  return (dest);
+}
+
+/* Just captialize (first letter to upper) */
 char *capt(char *str) {
   if (str && strlen(str) > 0) {
     if (str[0] >= 'a' && str[0] <= 'z') {
@@ -12,6 +54,29 @@ char *capt(char *str) {
   return (str);
 }
 
+/* Replace old by new in str */
+char *supreplace(char *old, char *new, char *str) {
+  char *newstr;
+  int len;
+  int pos;
+
+  len = strlen(str) + strlen(new) - strlen(old);
+  if ((newstr = malloc(sizeof(char) * (len + 1))) == NULL)
+      return (NULL);
+  memset(newstr, 0, len + 1);
+  /* Chunk before old */
+  if ((pos = contains(str, old)) == FAILURE)
+    return (NULL);
+  strncpy(newstr, str, pos);
+  /* old to new */
+  strncpy(&newstr[pos], new, strlen(new));
+  /* Chunk after old */
+  strncpy(&newstr[pos + strlen(new)], &str[pos + strlen(old)], strlen(str) - pos - strlen(old));
+  
+  return (newstr);
+}                             
+
+/* Replace all occurences of the character old by new in str */
 char *replace(char old, char new, char *str) {
   unsigned int i;
 
@@ -24,6 +89,7 @@ char *replace(char old, char new, char *str) {
   return (str);
 }
 
+/* Checks if opt contains only numeric characters */
 int isnum(char *opt) {
   unsigned int i;
 
@@ -35,6 +101,7 @@ int isnum(char *opt) {
   return (SUCCESS);
 }
 
+/* Prints stuff */
 void debug(s_kml *kml) {
   /* UGLY, but who cares? it's debug */
   int ct;

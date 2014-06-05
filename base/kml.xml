@@ -898,4 +898,25 @@
       <word>Yves</word>
       <word>Yvette</word>
     </prenom>
+    <prescuse>
+      <word>désolé</word>
+      <word>je peux pas</word>
+      <word>impossible</word>
+    </prescuse>
+    <scuse1>
+      <word>j'ai laissé $mon$ $nom$</word>
+      <word>je dois aller $verbe$ $mon$ $nom$ $complement$</word>
+      <word>j'ai promis à $mon$ $nom$ de $le$ $verbe$</word>
+      <word>je dois $verbe$ $mon$ $nom$</word>
+      <word>il faut que j'aille voir $un$ $nom$</word>
+      <word>$un$ $nom$ veut me $verbe$</word>
+      <word>il y a $un$ $nom$ qui essaye de me $verbe$</word>
+      <word>je suis poursuivi par $un$ $nom$</word>
+    </scuse1>
+    <scuse2>
+      <word>sur $un$ $nom$ $complement$</word>
+      <word>chez $un$ $nom$ $complement$</word>
+      <word>pour $verbe$ $mon$ $nom$</word>
+      <word>avec $un$ $nom$ $complement$</word>
+    </scuse2>
 </resources>

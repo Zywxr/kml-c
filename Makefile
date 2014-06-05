@@ -10,7 +10,8 @@
 NAME	= kamoulox
 SRCS	= srcs/kml.c		\
 	  srcs/kamoulox.c	\
-	  srcs/error.c
+	  srcs/error.c		\
+	  srcs/utils.c
 OBJS	= $(SRCS:.c=.o)
 
 CC	= gcc

@@ -49,3 +49,8 @@ Générateur d'insultes pas très sympas. Pour quand vous parlez politique.
 ### Kamou Ipsum
 Lorem Ipsum version Kamoulox, reprenant les générateurs ci-dessus. Très pratique 
 lorsque vous faites du web et que vous avez surexploité le Bacon Ipsum.
+
+### Petits addons rigolos
+Je sais pas encore quoi, tout simplement un installeur, un script qui ajoute
+une phrase aléatoire à chaque lancement de terminal, d'autres trucs pour le
+plaisir des développeurs et adminsys, que sais-je !

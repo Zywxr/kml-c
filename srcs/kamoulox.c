@@ -5,30 +5,18 @@
 #include <libxml/parser.h>
 #include "kml.h"
 #include "error.h"
+#include "utils.h"
 
-char *capt(char *str) {
-  if (str && strlen(str) > 0) {
-    if (str[0] >= 'a' && str[0] <= 'z') {
-      str[0] = str[0] - 32;
-    }
-  }
-  return (str);
-}
-
-char *replace(char old, char new, char *str) {
-  unsigned int i;
-
-  if (!str)
-    return (str);
-  for (i = 0; i < strlen(str); i++) {
-    if (str[i] == old)
-      str[i] = new;
-  }
-  return (str);
-}
-
-char *familyname(char *str) {
-  return (replace(' ', '-', capt(str)));
+char *fill(char *str) {
+  /* TODO */
+  int i;
+  char *filler[] = {"un", "le", "mon",
+		    "nom", "noms", "verbe",
+		    "complement", NULL};
+  str = str;
+  for (i = 0; filler[i] != NULL; i++)
+    printf("%s\n", filler[i]);
+  return (SUCCESS);
 }
 
 void kamoulox_t1_part(int turn, s_kml *kml) {
@@ -87,6 +75,10 @@ int kamoulox(s_kml *kml) {
   return kamoulox_t1(kml);
 }
 
+char *familyname(char *str) {
+  return (replace(' ', '-', capt(str)));
+}
+
 int kamounom(s_kml *kml) {
   printf("%s %s\n",
 	 capt(kml->kmlcat->prenom->list[rand() %
@@ -96,11 +88,14 @@ int kamounom(s_kml *kml) {
   return (SUCCESS);
 }
 
+/* Kamouscuse : Prescuse, scuse1 scuse2 */
 int kamouscuse(s_kml *kml) {
-  char* kamoustr;
-
-  kamoustr = "KAMOUSCUSE !";
-  kml = kml;
+  printf("%s, %s %s.\n",
+	 capt(kml->kmlcat->prescuse->list[rand() %
+					  kml->kmlcat->prescuse->len]),
+	 kml->kmlcat->scuse1->list[rand() % kml->kmlcat->scuse1->len],
+	 kml->kmlcat->scuse2->list[rand() % kml->kmlcat->scuse2->len]);
+  /* fill("toto"); */
   return (SUCCESS);
 }
 

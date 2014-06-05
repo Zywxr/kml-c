@@ -5,6 +5,7 @@
 #include <libxml/parser.h>
 #include "kml.h"
 #include "error.h"
+#include "utils.h"
 
 /* Le compilo sera pas content sans ca */
 char *strdup(const char *s);
@@ -35,36 +36,49 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
 }
 
 void set_category(s_kml *kml, char *cat) {
-  if (!strcmp(cat, "nom"))
-    kml->cat = NOM;
-  else if (!strcmp(cat, "nompropre"))
-    kml->cat = NOMPROPRE;
-  else if (!strcmp(cat, "nomspecial"))
-    kml->cat = NOMSPE;
-  else if (!strcmp(cat, "verbe"))
-    kml->cat = VERBE;
-  else if (!strcmp(cat, "complement"))
-    kml->cat = COMP;
-  else if (!strcmp(cat, "prenom"))
-    kml->cat = PRENOM;
-  else
-    kml->cat = NONE;
+  int i;
+  char *cats[] = {"nom", "nompropre", "nomspecial", "verbe",
+		  "complement", "prenom", "prescuse", "scuse1",
+		  "scuse2", NULL};
+  int values[] = {NOM, NOMPROPRE, NOMSPE, VERBE, COMP, PRENOM,
+		  PRESCUSE, SCUSE1, SCUSE2, NONE};
+
+  kml->cat = NONE;
+  for (i = 0; cats[i] != NULL; i++) {
+    if (!strcmp(cat, cats[i])) {
+      kml->cat = values[i];
+      break ;
+    }
+  }
 }
 
 void append(s_kml *kml, char *content) {
+  /* Any way to make it better? */
+  s_kmllist *cat;
 
+  cat = NULL;
   if (kml->cat == NOM)
-    kml->kmlcat->nom->list[kml->kmlcat->nom->len++] = (void*)content;
-  else if (kml->cat == NOMPROPRE)
-    kml->kmlcat->nompropre->list[kml->kmlcat->nompropre->len++]
-      = (void*)content;
+    cat = kml->kmlcat->nom;
   else if (kml->cat == NOMSPE)
-    kml->kmlcat->nomspecial->list[kml->kmlcat->nomspecial->len++]
-      = (void*)content;
+    cat = kml->kmlcat->nomspecial;
+  else if (kml->cat == NOMPROPRE)
+    cat = kml->kmlcat->nompropre;
   else if (kml->cat == VERBE)
-    kml->kmlcat->verbe->list[kml->kmlcat->verbe->len++] = (void*)content;
+    cat = kml->kmlcat->verbe;
   else if (kml->cat == PRENOM)
-    kml->kmlcat->prenom->list[kml->kmlcat->prenom->len++] = (void*)content;
+    cat = kml->kmlcat->prenom;
+  else if (kml->cat == PRESCUSE)
+    cat = kml->kmlcat->prescuse;
+  else if (kml->cat == SCUSE1)
+    cat = kml->kmlcat->scuse1;
+  else if (kml->cat == SCUSE2)
+    cat = kml->kmlcat->scuse2;
+  else
+    free(content); /* No need to keep it if we don't need it. */
+
+  if (cat != NULL)
+    cat->list[cat->len++] = (void*)content;
+
 }
 
 void store_kml(s_kml* kml, xmlNodePtr node) {
@@ -105,29 +119,8 @@ int init_category(s_kmllist *category) {
   return (SUCCESS);
 }
 
-int init_kml(s_kml **kml) {
-  if ((*kml = malloc(sizeof(s_kml))) == NULL)
-    return (error(E_MALLOC, "kml"));
-  (*kml)->kmlcat = NULL;
-  (*kml)->xml = NULL;
-  (*kml)->cat = NONE;
-
-  if (((*kml)->kmlcat = malloc(sizeof(s_kmlcat))) == NULL)
-    return (error(E_MALLOC, "kmlcat"));
-  if (((*kml)->kmlcat->nom = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: nom"));
-  if (((*kml)->kmlcat->nompropre = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: nompropre"));
-  if (((*kml)->kmlcat->nomspecial = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: nomspecial"));
-  if (((*kml)->kmlcat->comp_m = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: comp_m"));
-  if (((*kml)->kmlcat->comp_f = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: comp_f"));
-  if (((*kml)->kmlcat->verbe = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: verbe"));
-  if (((*kml)->kmlcat->prenom = malloc(sizeof(s_kmllist))) == NULL)
-    return (error(E_MALLOC, "kmlcat: prenom"));
+int init_kmlcat(s_kml **kml) {
+  /* Set them all to NULL here in case of failure */
   (*kml)->kmlcat->nom->list = NULL;
   (*kml)->kmlcat->gender = NULL;
   (*kml)->kmlcat->nompropre->list = NULL;
@@ -136,7 +129,9 @@ int init_kml(s_kml **kml) {
   (*kml)->kmlcat->comp_f->list = NULL;
   (*kml)->kmlcat->verbe->list = NULL;
   (*kml)->kmlcat->prenom->list = NULL;
-
+  (*kml)->kmlcat->prescuse->list = NULL;
+  (*kml)->kmlcat->scuse1->list = NULL;
+  (*kml)->kmlcat->scuse2->list = NULL;
   if (init_category((*kml)->kmlcat->nom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: nom"));
   if (((*kml)->kmlcat->gender = malloc(MAX_SIZE)) == NULL)
@@ -154,38 +149,48 @@ int init_kml(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: verbe"));
   if (init_category((*kml)->kmlcat->prenom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: prenom"));
+  if (init_category((*kml)->kmlcat->prescuse) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: prescuse"));
+  if (init_category((*kml)->kmlcat->scuse1) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: scuse1"));
+  if (init_category((*kml)->kmlcat->scuse2) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: scuse2"));
   return (SUCCESS);
 }
 
-void debug(s_kml *kml) {
-  int ct;
+int init_kml(s_kml **kml) {
+  if ((*kml = malloc(sizeof(s_kml))) == NULL)
+    return (error(E_MALLOC, "kml"));
+  (*kml)->kmlcat = NULL;
+  (*kml)->xml = NULL;
+  (*kml)->cat = NONE;
+  /* OMAGAD I'M DYING!! */
+  if (((*kml)->kmlcat = malloc(sizeof(s_kmlcat))) == NULL)
+    return (error(E_MALLOC, "kmlcat"));
+  if (((*kml)->kmlcat->nom = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: nom"));
+  if (((*kml)->kmlcat->nompropre = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: nompropre"));
+  if (((*kml)->kmlcat->nomspecial = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: nomspecial"));
+  if (((*kml)->kmlcat->comp_m = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_m"));
+  if (((*kml)->kmlcat->comp_f = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: comp_f"));
+  if (((*kml)->kmlcat->verbe = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: verbe"));
+  if (((*kml)->kmlcat->prenom = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: prenom"));
+  if (((*kml)->kmlcat->prescuse = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: prescuse"));
+  if (((*kml)->kmlcat->scuse1 = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: scuse1"));
+  if (((*kml)->kmlcat->scuse2 = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: scuse2"));
 
-  for (ct = 0; ct < kml->kmlcat->nom->len; ct++) {
-    if (kml->kmlcat->nom->list[ct] != NULL)
-      printf("Nom: %s.\n", kml->kmlcat->nom->list[ct]);
-  }
-  for (ct = 0; ct < kml->kmlcat->nompropre->len; ct++) {
-    if (kml->kmlcat->nompropre->list[ct] != NULL)
-      printf("Nompropre: %s.\n", kml->kmlcat->nompropre->list[ct]);
-  }
-  for (ct = 0; ct < kml->kmlcat->nomspecial->len; ct++) {
-    if (kml->kmlcat->nomspecial->list[ct] != NULL)
-      printf("Nomspecial: %s.\n", kml->kmlcat->nomspecial->list[ct]);
-  }
-  for (ct = 0; ct < kml->kmlcat->comp_m->len; ct++) {
-    if (kml->kmlcat->comp_m->list[ct] != NULL
-	&& kml->kmlcat->comp_f->list[ct] != NULL)
-      printf("Complement: %s - %s.\n", kml->kmlcat->comp_m->list[ct],
-	     kml->kmlcat->comp_f->list[ct]);
-  }
-  for (ct = 0; ct < kml->kmlcat->verbe->len; ct++) {
-    if (kml->kmlcat->verbe->list[ct] != NULL)
-      printf("Verbe: %s.\n", kml->kmlcat->verbe->list[ct]);
-  }
-  for (ct = 0; ct < kml->kmlcat->prenom->len; ct++) {
-    if (kml->kmlcat->prenom->list[ct] != NULL)
-      printf("Prenom: %s.\n", kml->kmlcat->prenom->list[ct]);
-  }
+  if (init_kmlcat(kml) == FAILURE)
+    return (FAILURE);
+  return (SUCCESS);
 }
 
 int get_xml(s_kml **kml, char *file) {
@@ -241,35 +246,49 @@ void free_xml(s_kml **kml) {
       free((*kml)->kmlcat->verbe);
       free_category((*kml)->kmlcat->prenom->list);
       free((*kml)->kmlcat->prenom);
+      free_category((*kml)->kmlcat->prescuse->list);
+      free((*kml)->kmlcat->prescuse);
+      free_category((*kml)->kmlcat->scuse1->list);
+      free((*kml)->kmlcat->scuse1);
+      free_category((*kml)->kmlcat->scuse2->list);
+      free((*kml)->kmlcat->scuse2);
       free((*kml)->kmlcat);
     }
     free(*kml);
   }
 }
 
-int isnum(char *opt) {
+int launch(int (*kmlfct)(s_kml*), int occur) {
+  s_kml *kml;
   unsigned int i;
+  int result;
 
-  if (!strlen(opt))
-    return (FAILURE);
-  for (i = 0; i < strlen(opt); i++)
-    if (opt[i] < '0' || opt[i] > '9')
-      return (FAILURE);
+  result = get_xml(&kml, XML_FILE);
+  if (result == FAILURE) {
+    free_xml(&kml);
+    return (error(E_XML_GEN, XML_FILE));
+  }
+  srand(getpid());
+  if (!occur)
+    result = (*kmlfct)(kml);
+  for (i = 0; i < (unsigned int)occur; i++) {
+    result = (*kmlfct)(kml);
+    if (result == FAILURE)
+      return (error(E_ERROR, NULL));
+  }
+  free_xml(&kml);
   return (SUCCESS);
 }
 
 int main(int ac, char **av) {
   unsigned int i;
   int occur;
-  int result;
-  s_kml *kml;
   int (*kmlfct)(s_kml*);
 
-  if (ac > 3)
-    return (error(USAGE, NULL));  /* Returns FAILURE */
-  /* Argument parsing */
   occur = 0;
   kmlfct = NULL;
+  if (ac > 3)
+    return (error(USAGE, NULL));  /* Returns FAILURE */
   for (i = 1; i < (unsigned int)ac; i++) {
     if (!strcmp(av[i], "--help")) {
       printf("%s\n", HELP);
@@ -293,19 +312,5 @@ int main(int ac, char **av) {
   if (kmlfct == NULL)
     kmlfct = &kamoulox;
   /* Now we can start */
-  result = get_xml(&kml, XML_FILE);
-  if (result == FAILURE) {
-    free_xml(&kml);
-    return (error(E_XML_GEN, XML_FILE));
-  }
-  srand(getpid());
-  if (!occur)
-    result = (*kmlfct)(kml);
-  for (i = 0; i < (unsigned int)occur; i++) {
-    result = (*kmlfct)(kml);
-    if (result == FAILURE)
-      return (error(E_ERROR, NULL));
-  }
-  free_xml(&kml);
-  return (result);
+  return (launch(kmlfct, occur));
 }

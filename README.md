@@ -16,12 +16,22 @@ données de tests pour des programmes/sites web/autres.
     kamouscuse: Impossible, j'ai laissé mon ostréiculteur avec une friteuse chez Roger.
     kamousulte: Espèce de sale sosie de pot de mayonnaise du sud.
 
+Installation
+------------
+Pour installer le Kamoulox, utilisez le script d'install fourni (requiert les
+droits administrateur).
+
+    ./install
+
+Très basique, il sera normalement portable (je n'ai pas testé en fait). Si non,
+vous pouvez au choix l'utiliser sans install, ou me contacter.
+
 Déjà disponibles
 ----------------
 ### Kamoulox
 Générateur de Kamoulox simple. Utile dans toutes les situations de conversation.
 
-    ./kamoulox -n5
+    kamoulox -n5
     Je fais pédaler une truelle à moteur et j'épluche un boomerang.
     Je percute l'Incroyable Hulk et j'arrache un raton-laveur.
     Je décongèle Gilbert Montagné et je roule sur un Bisounours.
@@ -31,7 +41,7 @@ Générateur de Kamoulox simple. Utile dans toutes les situations de conversatio
 ### Kamounom
 Générateur de noms rigolos. Idéal pour remplir une base de données de test.
 
-    ./kamoulox kamounom -n5
+    kamoulox kamounom -n5
     Jean-Jacques Suppositoire
     Tony Grenouille
     Pauline Barraque-à-frites

@@ -17,13 +17,13 @@ fi
 sudo cp kamoulox /bin/
 
 # Enable motd (please update depending on your OS
-sudo echo "" >> ~/.bash_profile
-sudo echo "kamoulox" >> ~/.bash_profile
-if [[ $? -ne 0 ]]
-then
-    echo "Error while installing Kamoulox."
-    exit
-fi
+# sudo echo "" >> ~/.bash_profile
+# sudo echo "kamoulox" >> ~/.bash_profile
+# if [[ $? -ne 0 ]]
+# then
+#     echo "Error while installing Kamoulox."
+#     exit
+# fi
 echo "Kamoulox successfully installed!"
 
 kamoulox

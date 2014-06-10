@@ -29,6 +29,11 @@ char *fill(s_kml *kml, char *str) {
       	str = supreplace(filler[i], gender == 'M' ? "un" : "une", str);
 	free(tmp);
       }
+      else if (!strcmp(filler[i], "$le$")) {
+	tmp = str; /* Save address for free later */
+      	str = supreplace(filler[i], gender == 'M' ? "le" : "la", str);
+	free(tmp);
+      }
       else if (!strcmp(filler[i], "$mon$")) {
 	tmp = str; /* Save address for free later */
       	str = supreplace(filler[i], gender == 'M' ? "mon" : "ma", str);

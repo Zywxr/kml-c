@@ -48,11 +48,19 @@ Générateur de noms rigolos. Idéal pour remplir une base de données de test.
     Marcel Touillette
     Mohammed Crevette
 
-A venir
--------
 ### Kamouscuse
 Générateur d'excuses crédibles. Pratique pour décliner une réunion pro.
 
+    kamoulox kamouscuse -n5
+    Désolé, il y a un frigo qui essaye de me broyer avec un concombre alcoolique.
+    Je peux pas, il y a un zébu qui essaye de me faire sécher avec un sumo par ordre alphabétique.
+    Impossible, il y a un sombrero qui essaye de me manger pour toiletter mon bidet.
+    Impossible, une terrine forestière veut me décorer chez un rideau de douche en peluche.
+    Désolé, je dois aller manger ma boîte aux lettres fluorescente sur un cochon mauve.
+
+
+A venir
+-------
 ### Kamousulte
 Générateur d'insultes pas très sympas. Pour quand vous parlez politique.
 

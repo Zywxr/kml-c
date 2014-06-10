@@ -44,12 +44,12 @@ char *ccat(char *dest, char *s1, char *s2, char *s3) {
   return (dest);
 }
 
-/* Just captialize (first letter to upper) */
+/* Just captialize (first letter to upper), changes current string */
 char *capt(char *str) {
-  if (str && strlen(str) > 0) {
-    if (str[0] >= 'a' && str[0] <= 'z') {
-      str[0] = str[0] - 32;
-    }
+  if (!str || strlen(str) <= 0)
+    return (NULL);
+  if (str[0] >= 'a' && str[0] <= 'z') {
+    str[0] = str[0] - 32;
   }
   return (str);
 }

@@ -5,12 +5,14 @@ sudo make re && sudo make clean
 if [[ $? -ne 0 ]]
 then
     echo "Error while compiling Kamoulox.."
+    exit
 fi
 # Copy Kamoulox files to system
 sudo cp -r base/kml.xml /bin/
 if [[ $? -ne 0 ]]
 then
     echo "Error while installing Kamoulox."
+    exit
 fi
 sudo cp kamoulox /bin/
 
@@ -20,6 +22,7 @@ sudo echo "kamoulox" >> ~/.bash_profile
 if [[ $? -ne 0 ]]
 then
     echo "Error while installing Kamoulox."
+    exit
 fi
 echo "Kamoulox successfully installed!"
 

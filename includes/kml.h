@@ -30,6 +30,7 @@ typedef struct KML_cat {
   s_kmllist *nompropre;
   s_kmllist *nomspecial;
   s_kmllist *verbe;
+  s_kmllist *inf;
   s_kmllist *comp_m;
   s_kmllist *comp_f;
   s_kmllist *prenom;

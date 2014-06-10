@@ -14,6 +14,7 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
   char *gender;
   char *m;
   char *f;
+  char *inf;
 
   gender = NULL;
   if (kml->cat == NOM) {
@@ -32,6 +33,11 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
     kml->kmlcat->comp_f->list[kml->kmlcat->comp_f->len] = f;
     kml->kmlcat->comp_m->len++;
     kml->kmlcat->comp_f->len++;
+  }
+  else if (kml->cat == VERBE) {
+    inf = (char*)xmlGetProp(node, (xmlChar*)"inf");
+    if (inf)
+      kml->kmlcat->inf->list[kml->kmlcat->inf->len++] = inf;
   }
 }
 
@@ -96,6 +102,7 @@ void store_kml(s_kml* kml, xmlNodePtr node) {
     if (current->type == XML_ELEMENT_NODE &&
 	!strcmp((char*)current->name, "word")) {
       content = xmlNodeGetContent(current);
+      /* If the word has an attribute in this category */
       set_attribute(kml, current);
       if (strlen((char*)content))
       	append(kml, (char*)content);
@@ -128,6 +135,7 @@ int init_kmlcat(s_kml **kml) {
   (*kml)->kmlcat->comp_m->list = NULL;
   (*kml)->kmlcat->comp_f->list = NULL;
   (*kml)->kmlcat->verbe->list = NULL;
+  (*kml)->kmlcat->inf->list = NULL;
   (*kml)->kmlcat->prenom->list = NULL;
   (*kml)->kmlcat->prescuse->list = NULL;
   (*kml)->kmlcat->scuse1->list = NULL;
@@ -147,6 +155,8 @@ int init_kmlcat(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: comp_f"));
   if (init_category((*kml)->kmlcat->verbe) == FAILURE)
     return (error(E_MALLOC, "kmlcat: verbe"));
+  if (init_category((*kml)->kmlcat->inf) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: inf"));
   if (init_category((*kml)->kmlcat->prenom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: prenom"));
   if (init_category((*kml)->kmlcat->prescuse) == FAILURE)
@@ -179,6 +189,8 @@ int init_kml(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: comp_f"));
   if (((*kml)->kmlcat->verbe = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: verbe"));
+  if (((*kml)->kmlcat->inf = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: inf"));
   if (((*kml)->kmlcat->prenom = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: prenom"));
   if (((*kml)->kmlcat->prescuse = malloc(sizeof(s_kmllist))) == NULL)
@@ -244,6 +256,8 @@ void free_xml(s_kml **kml) {
       free((*kml)->kmlcat->comp_f);
       free_category((*kml)->kmlcat->verbe->list);
       free((*kml)->kmlcat->verbe);
+      free_category((*kml)->kmlcat->inf->list);
+      free((*kml)->kmlcat->inf);
       free_category((*kml)->kmlcat->prenom->list);
       free((*kml)->kmlcat->prenom);
       free_category((*kml)->kmlcat->prescuse->list);

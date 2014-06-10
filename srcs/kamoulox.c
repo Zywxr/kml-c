@@ -15,6 +15,7 @@ char *fill(s_kml *kml, char *str) {
   s_kmllist *cat;
   int rd;
   char gender;
+  char *tmp;
 
   gender = 'M';
   for (i = 0; filler[i] != NULL; i++) {
@@ -23,11 +24,30 @@ char *fill(s_kml *kml, char *str) {
       if (!strcmp(filler[i], "$nom$")) {
 	cat = kml->kmlcat->nom;
       }
-      /* else if (!strcmp(filler[i], "$un$")) */
-      /* 	str = supreplace(filler[i], gender == 'M' ? "un" : "une", str); */
-      else if (!strcmp(filler[i], "$verbe$"))
-	cat = NULL; /*kml->kmlcat->infverbe;*/
-      
+      else if (!strcmp(filler[i], "$un$")) {
+	tmp = str; /* Save address for free later */
+      	str = supreplace(filler[i], gender == 'M' ? "un" : "une", str);
+	free(tmp);
+      }
+      else if (!strcmp(filler[i], "$mon$")) {
+	tmp = str; /* Save address for free later */
+      	str = supreplace(filler[i], gender == 'M' ? "mon" : "ma", str);
+	free(tmp);
+      }
+      else if (!strcmp(filler[i], "$verbe$")) {
+	rd = rand() % kml->kmlcat->inf->len;
+	tmp = str; /* Save address for free later */
+	str = supreplace(filler[i], kml->kmlcat->inf->list[rd], str);
+	free(tmp);
+      }      
+      else if (!strcmp(filler[i], "$complement$")) {
+	cat = gender == 'M' ? kml->kmlcat->comp_m : kml->kmlcat->comp_f;
+	tmp = str; /* Save address for free later */
+	rd = rand() % cat->len;
+	str = supreplace(filler[i], cat->list[rd], str);
+	free(tmp);
+	cat = NULL;
+      }      
       if (cat != NULL) {
 	rd = rand() % cat->len;
 	if (!strcmp(filler[i], "$nom$"))
@@ -39,22 +59,22 @@ char *fill(s_kml *kml, char *str) {
   return (str);
 }
 
-void kamoulox_t1_part(int turn, s_kml *kml) {
+void kamoulox_t1_part(s_kml *kml) {
   int r1;
   char *v;
-
+  
   if ((rand() % 5) == 2) {
     /* Avec nompropre */
     v = kml->kmlcat->verbe->list[rand() % kml->kmlcat->verbe->len];
     r1 = rand() % kml->kmlcat->nompropre->len;
-    printf("%s %s", turn == 1 ? capt(v) : v, 
+    printf("%s %s", v, 
 	   kml->kmlcat->nompropre->list[r1]);
   }
   else {
     /* Avec nom */
     r1 = rand() % kml->kmlcat->nom->len;
     v = kml->kmlcat->verbe->list[rand() % kml->kmlcat->verbe->len];
-    printf("%s %s %s", turn == 1 ? capt(v) : v,
+    printf("%s %s %s", v,
 	   kml->kmlcat->gender[r1] == 'M' ? "un" : "une", 
 	   kml->kmlcat->nom->list[r1]);
     /* On rajoute un complement ? */
@@ -73,18 +93,20 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
 
 /* Premier type de Kamoulox : je verbe un nom... */
 int kamoulox_t1(s_kml *kml) {
-  kamoulox_t1_part(1, kml);
+  kamoulox_t1_part(kml);
   printf(" et ");
-  kamoulox_t1_part(2, kml);
+  kamoulox_t1_part(kml);
   printf(".\n");
   return (SUCCESS);
 }
 
 /* Second type de Kamoulox : nomspecial et nomspecial */
 int kamoulox_t2(s_kml *kml) {
-  printf("%s et %s.\n",
-	 capt(kml->kmlcat->nomspecial->list[rand() %
-					    kml->kmlcat->nomspecial->len]),
+  char *v1;
+
+  v1 = kml->kmlcat->nomspecial->list[rand() %
+				     kml->kmlcat->nomspecial->len];
+  printf("%s et %s.\n", v1,
 	 kml->kmlcat->nomspecial->list[rand() %
 				       kml->kmlcat->nomspecial->len]);
   return (SUCCESS);

@@ -45,11 +45,21 @@ char *ccat(char *dest, char *s1, char *s2, char *s3) {
 }
 
 /* Just captialize (first letter to upper), changes current string */
-char *capt(char *str) {
+char *cap(char *str) {
   if (!str || strlen(str) <= 0)
     return (NULL);
   if (str[0] >= 'a' && str[0] <= 'z') {
     str[0] = str[0] - 32;
+  }
+  return (str);
+}
+
+/* Just uncaptialize (first letter to upper), changes current string */
+char *uncap(char *str) {
+  if (!str || strlen(str) <= 0)
+    return (NULL);
+  if (str[0] >= 'A' && str[0] <= 'Z') {
+    str[0] = str[0] + 32;
   }
   return (str);
 }

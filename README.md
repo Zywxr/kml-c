@@ -61,7 +61,7 @@ Générateur d'excuses crédibles. Pratique pour décliner une réunion pro.
 ### Kamousulte
 Générateur d'insultes pas très sympas. Pour quand vous parlez politique.
 
-    $> kamoulox kamousulte -n
+    $> kamoulox kamousulte -n5
     Saleté de sosie de rateau.
     Vilain imitateur de rhinocéros en carton.
     Bouffeur de cow-boys.

@@ -1,7 +1,8 @@
 #ifndef UTILS_H_
 # define UTILS_H_
 
-char *capt(char*);
+char *cap(char*);
+char *uncap(char*);
 int contains(char *container, char *search);
 char *ccat(char *dest, char *s1, char *s2, char *s3);
 char *replace(char old, char new, char *str);

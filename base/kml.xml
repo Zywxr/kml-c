@@ -919,4 +919,78 @@
       <word>pour $verbe$ $mon$ $nom$</word>
       <word>avec $un$ $nom$ $complement$</word>
     </scuse2>
+    <presulte>
+      <word>sale</word>
+      <word>saleté de</word>
+      <word>vilain</word>
+      <word>abruti de</word>
+      <word>andouille de</word>
+      <word>immonde</word>
+      <word>ignoble</word>
+      <word>stupide</word>
+      <word>contrefaçon de</word>
+    </presulte>
+    <sulte>
+      <word>$nompropre$</word>
+      <word>$nomspecial$</word>
+      <word>sac à $nom$</word>
+      <word>sac à $nomspecial$</word>
+      <word>fils de $nom$</word>
+      <word>fils de $nompropre$</word>
+      <word>fils de $nomspecial$</word>
+      <word>oncle de $nom$</word>
+      <word>oncle de $nompropre$</word>
+      <word>oncle de $nomspecial$</word>
+      <word>arracheur de $noms$</word>
+      <word>avaleur de $noms$</word>
+      <word>bouffeur de $noms$</word>
+      <word>mangeur de $noms$</word>
+      <word>buveur de $noms$</word>
+      <word>fumeur de $noms$</word>
+      <word>imitateur de $noms$</word>
+      <word>décapsuleur de $noms$</word>
+      <word>destructeur de $noms$</word>
+      <word>vendeur de $noms$</word>
+      <word>adorateur de $noms$</word>
+      <word>adorateur de $nompropre$</word>
+      <word>collectionneur de $noms$</word>
+      <word>mangeur de $noms$</word>
+      <word>violeur de $noms$</word>
+      <word>apprenti $nom$</word>
+      <word>apprenti $nomspecial$</word>
+      <word>apprenti $nompropre$</word>
+      <word>stagiaire en $nom$</word>
+      <word>stagiaire en $nomspecial$</word>
+      <word>sosie de $nom$</word>
+      <word>sosie de $nompropre$</word>
+      <word>sosie de $nomspecial$</word>
+      <word>fan de $noms$</word>
+      <word>fan de $nompropre$</word>
+      <word>raciste des $noms$</word>
+      <word>raciste de $nompropre$</word>
+      <word>anti-$noms$</word>
+      <word>moniteur de $nom$</word>
+    </sulte>
+    <postsulte>
+      <word>psychopathe</word>
+      <word>terroriste</word>
+      <word>malhonnête</word>
+      <word>pitoyable</word>
+      <word>débile</word>
+      <word>de mes deux</word>
+      <word>à la con</word>
+      <word>à moteur</word>
+      <word>à moustaches</word>
+      <word>à rayures</word>
+      <word>à roulettes</word>
+      <word>alcoolique</word>
+      <word>belge</word>
+      <word>cosmique</word>
+      <word>du sud</word>
+      <word>en carton</word>
+      <word>en promotion</word>
+      <word>en salopette</word>
+      <word>extraterrestre</word>
+      <word>sauvage</word>
+    </postsulte>
 </resources>

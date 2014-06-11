@@ -45,9 +45,10 @@ void set_category(s_kml *kml, char *cat) {
   int i;
   char *cats[] = {"nom", "nompropre", "nomspecial", "verbe",
 		  "complement", "prenom", "prescuse", "scuse1",
-		  "scuse2", NULL};
+		  "scuse2", "presulte", "sulte", "postsulte", NULL};
   int values[] = {NOM, NOMPROPRE, NOMSPE, VERBE, COMP, PRENOM,
-		  PRESCUSE, SCUSE1, SCUSE2, NONE};
+		  PRESCUSE, SCUSE1, SCUSE2, PRESULTE, SULTE,
+		  POSTSULTE, NONE};
 
   kml->cat = NONE;
   for (i = 0; cats[i] != NULL; i++) {
@@ -79,6 +80,12 @@ void append(s_kml *kml, char *content) {
     cat = kml->kmlcat->scuse1;
   else if (kml->cat == SCUSE2)
     cat = kml->kmlcat->scuse2;
+  else if (kml->cat == PRESULTE)
+    cat = kml->kmlcat->presulte;
+  else if (kml->cat == SULTE)
+    cat = kml->kmlcat->sulte;
+  else if (kml->cat == POSTSULTE)
+    cat = kml->kmlcat->postsulte;
   else
     free(content); /* No need to keep it if we don't need it. */
 
@@ -140,6 +147,9 @@ int init_kmlcat(s_kml **kml) {
   (*kml)->kmlcat->prescuse->list = NULL;
   (*kml)->kmlcat->scuse1->list = NULL;
   (*kml)->kmlcat->scuse2->list = NULL;
+  (*kml)->kmlcat->presulte->list = NULL;
+  (*kml)->kmlcat->sulte->list = NULL;
+  (*kml)->kmlcat->postsulte->list = NULL;
   if (init_category((*kml)->kmlcat->nom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: nom"));
   if (((*kml)->kmlcat->gender = malloc(MAX_SIZE)) == NULL)
@@ -165,6 +175,12 @@ int init_kmlcat(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: scuse1"));
   if (init_category((*kml)->kmlcat->scuse2) == FAILURE)
     return (error(E_MALLOC, "kmlcat: scuse2"));
+  if (init_category((*kml)->kmlcat->presulte) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: presulte"));
+  if (init_category((*kml)->kmlcat->sulte) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: sulte"));
+  if (init_category((*kml)->kmlcat->postsulte) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: postsulte"));
   return (SUCCESS);
 }
 
@@ -199,6 +215,12 @@ int init_kml(s_kml **kml) {
     return (error(E_MALLOC, "kmlcat: scuse1"));
   if (((*kml)->kmlcat->scuse2 = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: scuse2"));
+  if (((*kml)->kmlcat->presulte = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: presulte"));
+  if (((*kml)->kmlcat->sulte = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: sulte"));
+  if (((*kml)->kmlcat->postsulte = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: postsulte"));
 
   if (init_kmlcat(kml) == FAILURE)
     return (FAILURE);
@@ -266,6 +288,12 @@ void free_xml(s_kml **kml) {
       free((*kml)->kmlcat->scuse1);
       free_category((*kml)->kmlcat->scuse2->list);
       free((*kml)->kmlcat->scuse2);
+      free_category((*kml)->kmlcat->presulte->list);
+      free((*kml)->kmlcat->presulte);
+      free_category((*kml)->kmlcat->sulte->list);
+      free((*kml)->kmlcat->sulte);
+      free_category((*kml)->kmlcat->postsulte->list);
+      free((*kml)->kmlcat->postsulte);
       free((*kml)->kmlcat);
     }
     free(*kml);

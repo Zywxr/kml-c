@@ -8,7 +8,6 @@
 #include "utils.h"
 
 char *fill(s_kml *kml, char *str) {
-  /* TODO */
   unsigned int i;
   char *filler[] = {"$nom$", "$noms$", "$un$", "$le$", "$mon$", 
 		    "$verbe$", "$complement$", NULL};
@@ -20,46 +19,32 @@ char *fill(s_kml *kml, char *str) {
   gender = 'M';
   for (i = 0; filler[i] != NULL; i++) {
     cat = NULL;
-    if (contains(str, filler[i]) != FAILURE) {
-      if (!strcmp(filler[i], "$nom$")) {
-	cat = kml->kmlcat->nom;
-      }
-      else if (!strcmp(filler[i], "$un$")) {
-	tmp = str; /* Save address for free later */
-      	str = supreplace(filler[i], gender == 'M' ? "un" : "une", str);
-	free(tmp);
-      }
-      else if (!strcmp(filler[i], "$le$")) {
-	tmp = str; /* Save address for free later */
-      	str = supreplace(filler[i], gender == 'M' ? "le" : "la", str);
-	free(tmp);
-      }
-      else if (!strcmp(filler[i], "$mon$")) {
-	tmp = str; /* Save address for free later */
-      	str = supreplace(filler[i], gender == 'M' ? "mon" : "ma", str);
-	free(tmp);
-      }
-      else if (!strcmp(filler[i], "$verbe$")) {
-	rd = rand() % kml->kmlcat->inf->len;
-	tmp = str; /* Save address for free later */
-	str = supreplace(filler[i], kml->kmlcat->inf->list[rd], str);
-	free(tmp);
-      }      
-      else if (!strcmp(filler[i], "$complement$")) {
-	cat = gender == 'M' ? kml->kmlcat->comp_m : kml->kmlcat->comp_f;
-	tmp = str; /* Save address for free later */
-	rd = rand() % cat->len;
-	str = supreplace(filler[i], cat->list[rd], str);
-	free(tmp);
-	cat = NULL;
-      }      
-      if (cat != NULL) {
-	rd = rand() % cat->len;
-	if (!strcmp(filler[i], "$nom$"))
-	  gender = kml->kmlcat->gender[rd];
-	str = supreplace(filler[i], cat->list[rd], str);
-      }
+    if (contains(str, filler[i]) == FAILURE)
+      continue ;
+    if (!strcmp(filler[i], "$nom$")) {
+      rd = rand() % kml->kmlcat->nom->len;
+      if (!strcmp(filler[i], "$nom$"))
+	gender = kml->kmlcat->gender[rd];
+      str = supreplace(filler[i], kml->kmlcat->nom->list[rd], str);
+      continue ;
     }
+    tmp = str; /* Save address for free later */
+    if (!strcmp(filler[i], "$un$"))
+      str = supreplace(filler[i], gender == 'M' ? "un" : "une", str);
+    else if (!strcmp(filler[i], "$le$"))
+      str = supreplace(filler[i], gender == 'M' ? "le" : "la", str);
+    else if (!strcmp(filler[i], "$mon$"))
+      str = supreplace(filler[i], gender == 'M' ? "mon" : "ma", str);
+    else if (!strcmp(filler[i], "$verbe$")) {
+      rd = rand() % kml->kmlcat->inf->len;
+      str = supreplace(filler[i], kml->kmlcat->inf->list[rd], str);
+    }      
+    else if (!strcmp(filler[i], "$complement$")) {
+      cat = gender == 'M' ? kml->kmlcat->comp_m : kml->kmlcat->comp_f;
+      str = supreplace(filler[i], cat->list[rand() % cat->len], str);
+    }
+    if (tmp != str)
+      free(tmp);
   }
   return (str);
 }

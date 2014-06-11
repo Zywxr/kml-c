@@ -16,7 +16,10 @@ typedef enum {
   /* KAMOUSCUSE STUFF */
   PRESCUSE,
   SCUSE1,
-  SCUSE2
+  SCUSE2,
+  PRESULTE,
+  SULTE,
+  POSTSULTE
 } k_type;
 
 typedef struct KML_list {
@@ -37,6 +40,9 @@ typedef struct KML_cat {
   s_kmllist *prescuse;
   s_kmllist *scuse1;
   s_kmllist *scuse2;
+  s_kmllist *presulte;
+  s_kmllist *sulte;
+  s_kmllist *postsulte;
 } s_kmlcat;
 
 typedef struct KML {

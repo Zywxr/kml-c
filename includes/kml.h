@@ -52,9 +52,26 @@ typedef struct KML {
   xmlNodePtr root;
 } s_kml;
 
+/* INIT */
+int init_category(s_kmllist *category);
+int init_kmlcat(s_kml **kml);
+int init_kml(s_kml**);
+
+/* XML */
+void set_attribute(s_kml *kml, xmlNodePtr node);
+void set_category(s_kml *kml, char *cat);
+void append(s_kml *kml, char *content);
+void store_kml(s_kml* kml, xmlNodePtr node);
+int get_xml(s_kml **kml, char *file);
+
+/* RUN */
 int kamoulox(s_kml*);
 int kamounom(s_kml*);
 int kamouscuse(s_kml*);
 int kamousulte(s_kml*);
+
+/* END */
+void free_category(char **category);
+void free_xml(s_kml**);
 
 #endif /* KML_H_ */

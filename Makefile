@@ -4,6 +4,9 @@
 
 NAME	= kamoulox
 SRCS	= srcs/kml.c		\
+	  srcs/init.c		\
+	  srcs/xml.c		\
+	  srcs/end.c		\
 	  srcs/kamoulox.c	\
 	  srcs/error.c		\
 	  srcs/utils.c

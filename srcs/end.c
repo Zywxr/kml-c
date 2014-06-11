@@ -24,6 +24,8 @@ void free_xml_base(s_kml **kml) {
   /* Nom */
   free_category((*kml)->kmlcat->nom->list);
   free((*kml)->kmlcat->nom);
+  free_category((*kml)->kmlcat->noms->list);
+  free((*kml)->kmlcat->noms);
   /* Gender */
   if ((*kml)->kmlcat->gender != NULL)
     free((*kml)->kmlcat->gender);

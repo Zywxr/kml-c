@@ -17,6 +17,7 @@ typedef enum {
   PRESCUSE,
   SCUSE1,
   SCUSE2,
+  /* KAMOUSULTE STUFF */
   PRESULTE,
   SULTE,
   POSTSULTE
@@ -29,6 +30,7 @@ typedef struct KML_list {
 
 typedef struct KML_cat {
   s_kmllist *nom;
+  s_kmllist *noms;
   char      *gender;
   s_kmllist *nompropre;
   s_kmllist *nomspecial;

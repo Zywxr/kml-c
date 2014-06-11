@@ -12,6 +12,7 @@ char *strdup(const char *s);
 
 void set_attribute(s_kml *kml, xmlNodePtr node) {
   char *gender;
+  char *plural;
   char *m;
   char *f;
   char *inf;
@@ -22,6 +23,9 @@ void set_attribute(s_kml *kml, xmlNodePtr node) {
     if (gender)
       kml->kmlcat->gender[strlen(kml->kmlcat->gender)] = gender[0];
     free(gender);
+    plural = (char*)xmlGetProp(node, (xmlChar*)"plural");
+    if (plural)
+      kml->kmlcat->noms->list[kml->kmlcat->noms->len++] = plural;
   }
   else if (kml->cat == COMP) {
     m = (char*)xmlGetProp(node, (xmlChar*)"m");

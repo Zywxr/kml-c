@@ -21,6 +21,7 @@ int init_category(s_kmllist *category) {
 void init_kmlcat_tonull(s_kml **kml) {
   /* Base */
   (*kml)->kmlcat->nom->list = NULL;
+  (*kml)->kmlcat->noms->list = NULL;
   (*kml)->kmlcat->gender = NULL;
   (*kml)->kmlcat->nompropre->list = NULL;
   (*kml)->kmlcat->nomspecial->list = NULL;
@@ -43,6 +44,8 @@ void init_kmlcat_tonull(s_kml **kml) {
 int init_kmlcat_base(s_kml **kml) {
   if (init_category((*kml)->kmlcat->nom) == FAILURE)
     return (error(E_MALLOC, "kmlcat: nom"));
+  if (init_category((*kml)->kmlcat->noms) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: noms"));
   if (((*kml)->kmlcat->gender = malloc(MAX_SIZE)) == NULL)
     return (error(E_MALLOC, "kmlcat: gender"));
   memset((*kml)->kmlcat->gender, 0, MAX_SIZE);
@@ -99,6 +102,8 @@ int init_kmlcat(s_kml **kml) {
 int init_kml_base(s_kml **kml) {
   if (((*kml)->kmlcat->nom = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: nom"));
+  if (((*kml)->kmlcat->noms = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: noms"));
   if (((*kml)->kmlcat->nompropre = malloc(sizeof(s_kmllist))) == NULL)
     return (error(E_MALLOC, "kmlcat: nompropre"));
   if (((*kml)->kmlcat->nomspecial = malloc(sizeof(s_kmllist))) == NULL)

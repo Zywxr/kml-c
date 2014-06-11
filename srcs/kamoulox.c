@@ -9,7 +9,8 @@
 
 char *fill(s_kml *kml, char *str) {
   unsigned int i;
-  char *filler[] = {"$nom$", "$noms$", "$un$", "$le$", "$mon$", 
+  char *filler[] = {"$nom$", "$noms$", "$nompropre$", "$nomspecial$",
+		    "$un$", "$le$", "$mon$", 
 		    "$verbe$", "$complement$", NULL};
   s_kmllist *cat;
   int rd;
@@ -21,11 +22,25 @@ char *fill(s_kml *kml, char *str) {
     cat = NULL;
     if (contains(str, filler[i]) == FAILURE)
       continue ;
-    if (!strcmp(filler[i], "$nom$")) {
+    if (!strcmp(filler[i], "$nom$")
+	|| !strcmp(filler[i], "$noms$")
+	|| !strcmp(filler[i], "$nomspecial$")
+	|| !strcmp(filler[i], "$nompropre$")) {
       rd = rand() % kml->kmlcat->nom->len;
-      if (!strcmp(filler[i], "$nom$"))
+      if (!strcmp(filler[i], "$nom$")) {
 	gender = kml->kmlcat->gender[rd];
-      str = supreplace(filler[i], kml->kmlcat->nom->list[rd], str);
+	str = supreplace(filler[i], kml->kmlcat->nom->list[rd], str);
+      }
+      if (!strcmp(filler[i], "$noms$"))
+	str = supreplace(filler[i], kml->kmlcat->noms->list[rd], str);
+      if (!strcmp(filler[i], "$nomspecial$")) {
+	rd = rand() % kml->kmlcat->nomspecial->len;
+	str = supreplace(filler[i], kml->kmlcat->nomspecial->list[rd], str);
+      }
+      if (!strcmp(filler[i], "$nompropre$")) {
+	rd = rand() % kml->kmlcat->nompropre->len;
+	str = supreplace(filler[i], kml->kmlcat->nompropre->list[rd], str);
+      }
       continue ;
     }
     tmp = str; /* Save address for free later */
@@ -146,9 +161,26 @@ int kamouscuse(s_kml *kml) {
 }
 
 int kamousulte(s_kml *kml) {
-  char* kamoustr;
+  char *s1;
+  int rd;
 
-  kamoustr = "KAMOUSULTE !";
-  kml = kml;
+  if ((rand() % 3) == 1) {
+    printf("espèce de ");
+  } 
+  if ((rand() % 3) == 1) {
+    rd = rand() % kml->kmlcat->presulte->len;
+    printf("%s ", kml->kmlcat->presulte->list[rd]);
+  }
+  /* Sulte */
+  rd = rand() % kml->kmlcat->sulte->len;
+  if ((s1 = fill(kml, kml->kmlcat->sulte->list[rd])) == NULL)
+    return (error(E_ERROR, NULL));
+  printf("%s", s1);
+  if ((rand() % 3) == 1) {
+    rd = rand() % kml->kmlcat->postsulte->len;
+    printf(" %s", kml->kmlcat->postsulte->list[rd]);
+  }
+  printf(".\n");
+  free(s1);
   return (SUCCESS);
 }

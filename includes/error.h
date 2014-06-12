@@ -15,9 +15,10 @@ cassoulet.\n\
 kamounom  : Jean-Christophe Petit-Suisse\n\
 kamouscuse: Impossible, j'ai laissé mon ostréiculteur avec une friteuse \
 chez Roger.\n\
-kamousulte: Espèce de sale sosie de pot de mayonnaise du sud."
+kamousulte: Espèce de sale sosie de pot de mayonnaise du sud.\n\
+ipsum     : Lorem ipsum."
 
-# define USAGE     "Usage: ./kamoulox [kamounom|kamouscuse|kamousulte] [-nX]\
+# define USAGE     "Usage: kamoulox [kamounom|kamouscuse|kamousulte|ipsum] [-nX]\
  --help pour l'aide."
 # define E_ERROR   "Something went wrong."
 # define E_ARG_OCC "Number of occurences should be between 1 and 100."

@@ -18,10 +18,13 @@ int launch(int (*kmlfct)(s_kml*), int occur) {
     return (error(E_XML_GEN, XML_FILE));
   }
   srand(getpid());
-  if (!occur)
+  if (!occur) {
     result = (*kmlfct)(kml);
+    printf("\n");
+  }
   for (i = 0; i < (unsigned int)occur; i++) {
     result = (*kmlfct)(kml);
+    printf("\n");
     if (result == FAILURE)
       return (error(E_ERROR, NULL));
   }
@@ -49,6 +52,8 @@ int main(int ac, char **av) {
       kmlfct = &kamouscuse;
     else if (!strcmp(av[i], "kamousulte") && !kmlfct)
       kmlfct = &kamousulte;
+    else if (!strcmp(av[i], "ipsum") && !kmlfct)
+      kmlfct = &kamouipsum;
     else if (strlen(av[i]) >= 3 && av[i][0] == '-' && av[i][1] == 'n'
 	     && isnum(&av[i][2]) == SUCCESS) {
       occur = atoi(&av[i][2]);

@@ -104,7 +104,7 @@ int kamoulox_t1(s_kml *kml) {
   kamoulox_t1_part(1, kml);
   printf(" et ");
   kamoulox_t1_part(2, kml);
-  printf(".\n");
+  printf(".");
   return (SUCCESS);
 }
 
@@ -116,7 +116,7 @@ int kamoulox_t2(s_kml *kml) {
 				     kml->kmlcat->nomspecial->len];
   v2 = kml->kmlcat->nomspecial->list[rand() %
 				     kml->kmlcat->nomspecial->len];
-  printf("%s et %s.\n", cap(v1), uncap(v2));
+  printf("%s et %s.", cap(v1), uncap(v2));
   return (SUCCESS);
 }
 
@@ -132,7 +132,7 @@ char *familyname(char *str) {
 }
 
 int kamounom(s_kml *kml) {
-  printf("%s %s\n",
+  printf("%s %s",
 	 cap(kml->kmlcat->prenom->list[rand() %
 					kml->kmlcat->prenom->len]),
 	 familyname(kml->kmlcat->nom->list[rand() %
@@ -155,7 +155,7 @@ int kamouscuse(s_kml *kml) {
     return (error(E_ERROR, NULL));      
   }
   rd = rand() % kml->kmlcat->prescuse->len;
-  printf("%s, %s %s.\n",
+  printf("%s, %s %s.",
 	 cap(kml->kmlcat->prescuse->list[rd]),
 	 s1, s2);
   free(s1);
@@ -187,7 +187,27 @@ int kamousulte(s_kml *kml) {
     rd = rand() % kml->kmlcat->postsulte->len;
     printf(" %s", kml->kmlcat->postsulte->list[rd]);
   }
-  printf(".\n");
+  printf(".");
   free(s1);
+  return (SUCCESS);
+}
+
+int kamouipsum(s_kml *kml) {
+  int ct;
+  int SENTENCES;
+  int FUNCTIONS;
+  int (*kmlfct[3])(s_kml*);
+
+  FUNCTIONS = 3;
+  SENTENCES = 6;
+  kmlfct[0] = kamoulox;
+  kmlfct[1] = kamouscuse;
+  kmlfct[2] = kamousulte;
+
+  for (ct = 0 ; ct < SENTENCES ; ct++) {
+    kmlfct[rand() % FUNCTIONS](kml);
+    if (ct < SENTENCES - 1)
+      printf(" ");
+  }
   return (SUCCESS);
 }

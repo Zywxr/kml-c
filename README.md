@@ -69,12 +69,16 @@ Générateur d'insultes pas très sympas. Pour quand vous parlez politique.
     Immonde arracheur de cocottes-minute à moustaches.
     Espèce de stagiaire en pot de mayonnaise.
 
-A venir
--------
 ### Kamou Ipsum
 Lorem Ipsum version Kamoulox, reprenant les générateurs ci-dessus. Très pratique 
 lorsque vous faites du web et que vous avez surexploité le Bacon Ipsum.
 
+    $> kamoulox ipsum -n2
+    Espèce de oncle de Justin Bieber. J'insulte une cuvette et je me fais greffer un pompier en faisant le poirier. Désolé, je suis poursuivi par un épouvantail avec un lapin en céramique. Je déballe un escalator de Noël et j'agrafe un pissenlit. Désolé, il y a un réacteur nucléaire qui essaye de me aspirer sur un castor alcoolique. Je peux pas, il y a un plat à gratin qui essaye de me brûler chez une corbeille à papier en promotion.
+    Espèce de ignoble destructeur de épouvantails. J'illumine un moteur de 4L à la cantine et je m'installe sur un cochon. J'achète une valise avec des tongs et j'aspire une cafetière. Espèce de fan de Nelson Monfort. Je peux pas, je dois broyer ma tasse à café sur une andouillette extraterrestre. Désolé, il faut que j'aille voir une sauterelle chez un sombrero industriel.
+
+A venir
+-------
 ### Petits addons rigolos
 Je sais pas encore quoi, tout simplement un installeur, un script qui ajoute
 une phrase aléatoire à chaque lancement de terminal, d'autres trucs pour le

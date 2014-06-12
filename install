@@ -8,7 +8,8 @@ then
     exit
 fi
 # Copy Kamoulox files to system
-sudo cp -r base/kml.xml /bin/
+sudo cp -r base /bin/
+sudo cp base/kml.xml /bin/base/
 if [[ $? -ne 0 ]]
 then
     echo "Error while installing Kamoulox."

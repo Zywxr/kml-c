@@ -17,6 +17,8 @@ char *fill_replace(char *str, s_kml *kml, char gender, int i) {
   int rd;
 
     cat = NULL;
+    if (str == NULL)
+      return (NULL);
     tmp = str; /* Save address for free later */
     if (!strcmp(filler[i], "$un$"))
       str = supreplace(filler[i], gender == 'M' ? "un" : "une", str);
@@ -97,7 +99,7 @@ void kamoulox_t1_part(int turn, s_kml *kml) {
       }
     }
   }
-} 
+}
 
 /* Premier type de Kamoulox : je verbe un nom... */
 int kamoulox_t1(s_kml *kml) {
@@ -160,6 +162,8 @@ int kamouscuse(s_kml *kml) {
 	 s1, s2);
   free(s1);
   free(s2);
+  s1 = NULL;
+  s2 = NULL;
   return (SUCCESS);
 }
 
@@ -194,6 +198,7 @@ int kamousulte(s_kml *kml) {
 
 int kamouipsum(s_kml *kml) {
   int ct;
+  int result;
   int SENTENCES;
   int FUNCTIONS;
   int (*kmlfct[3])(s_kml*);
@@ -205,7 +210,9 @@ int kamouipsum(s_kml *kml) {
   kmlfct[2] = kamousulte;
 
   for (ct = 0 ; ct < SENTENCES ; ct++) {
-    kmlfct[rand() % FUNCTIONS](kml);
+    result = kmlfct[rand() % FUNCTIONS](kml);
+    if (result == FAILURE)
+      return (FAILURE);
     if (ct < SENTENCES - 1)
       printf(" ");
   }

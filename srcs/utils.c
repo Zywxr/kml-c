@@ -54,7 +54,7 @@ char *cap(char *str) {
   return (str);
 }
 
-/* Just uncaptialize (first letter to upper), changes current string */
+/* Just uncapitalize (first letter to upper), changes current string */
 char *uncap(char *str) {
   if (!str || strlen(str) <= 0)
     return (NULL);
@@ -70,19 +70,20 @@ char *supreplace(char *old, char *new, char *str) {
   int len;
   int pos;
 
+  /* Sounds good to check if there is something to be done */
+  if ((pos = contains(str, old)) == FAILURE)
+    return (old);
   len = strlen(str) + strlen(new) - strlen(old);
   if ((newstr = malloc(sizeof(char) * (len + 1))) == NULL)
       return (NULL);
   memset(newstr, 0, len + 1);
   /* Chunk before old */
-  if ((pos = contains(str, old)) == FAILURE)
-    return (NULL);
   strncpy(newstr, str, pos);
   /* old to new */
   strncpy(&newstr[pos], new, strlen(new));
   /* Chunk after old */
   strncpy(&newstr[pos + strlen(new)], &str[pos + strlen(old)], strlen(str) - pos - strlen(old));
-  
+
   return (newstr);
 }                             
 

@@ -1,7 +1,7 @@
 #ifndef KML_H_
 # define KML_H_
 
-# define XML_FILE "base/kml.xml"
+# define XML_FILE "/bin/base/kml.xml"
 # define MAX_SIZE 512
 
 typedef enum {
@@ -71,6 +71,7 @@ int kamoulox(s_kml*);
 int kamounom(s_kml*);
 int kamouscuse(s_kml*);
 int kamousulte(s_kml*);
+int kamouipsum(s_kml*);
 
 /* END */
 void free_category(char **category);

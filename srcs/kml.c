@@ -19,14 +19,15 @@ int launch(int (*kmlfct)(s_kml*), int occur) {
   }
   srand(getpid());
   if (!occur) {
-    result = (*kmlfct)(kml);
-    printf("\n");
+    occur = 1;
   }
   for (i = 0; i < (unsigned int)occur; i++) {
     result = (*kmlfct)(kml);
-    printf("\n");
-    if (result == FAILURE)
+    if (result == FAILURE) {
+      free_xml(&kml);
       return (error(E_ERROR, NULL));
+    }
+    printf("\n");
   }
   free_xml(&kml);
   return (SUCCESS);

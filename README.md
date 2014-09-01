@@ -88,9 +88,13 @@ lorsque vous faites du web et que vous avez surexploité le Bacon Ipsum.
     andouillette extraterrestre. Désolé, il faut que j'aille voir une 
     sauterelle chez un sombrero industriel.
 
-A venir
+Petits scripts à la con
 -------
-### Petits addons rigolos
-Je sais pas encore quoi, tout simplement un installeur, un script qui ajoute
-une phrase aléatoire à chaque lancement de terminal, d'autres trucs pour le
-plaisir des développeurs et adminsys, que sais-je !
+### MOTD
+Le script *kmlmotd* vous permet de changer le message of the day sous Unix,
+c'est à dire le message qui s'affiche lorsque vous vous logguez. Le message
+affiché par le *kmlmotd* change tous les jours :)
+
+### Autres petits addons rigolos
+Pour l'instant il n'y a pas d'autres trucs rigolos, mais il y en aura ! Et
+si vous avez des idées, je prend ;)

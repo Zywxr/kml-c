@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Test if kamoulox
+kamoulox && echo "KML Project found!"
+if [[ $? -ne 0 ]]
+then
+    echo "Well, looks like the KML Project is not installed."
+    exit
+fi
+
+ls /etc/motd 1>/dev/null
+if [[ $? -ne 0 ]]
+then
+    echo "I can't find /etc/motd, so I will create it!"
+    sudo touch /etc/motd
+fi
+
+# Set permissions for motd
+echo "Sorry but I have to set extended permissions for motd"
+sudo chmod 666 /etc/motd
+if [[ $? -ne 0 ]]
+then
+    echo "Error while trying to modify motd."
+    exit
+fi
+
+# Setting motd
+kamoulox > /etc/motd
+if [[ $? -ne 0 ]]
+then
+    echo "Error while installing Kamoulox."
+    exit
+fi
+
+touch kmlmotd.daily && echo 'kamoulox > /etc/motd' > kmlmotd.daily && sudo mv kmlmotd.daily /etc/cron.daily
+if [[ $? -ne 0 ]]
+then
+    echo "Error while setting cron job for daily changes."
+    exit
+fi
+
+echo "Message of the day is now very Kamoulox!"

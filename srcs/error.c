@@ -5,7 +5,7 @@
 
 int error(char *msg, char *value) {
   if (msg == NULL) {
-    error("You failed your error message.", NULL);
+    (void)error("You failed your error message.", NULL);
     return (FAILURE);
   }
   if (value != NULL)

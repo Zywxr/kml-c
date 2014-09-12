@@ -32,7 +32,8 @@ then
     exit
 fi
 
-touch kmlmotd.daily && echo 'kamoulox > /etc/motd' > kmlmotd.daily && sudo mv kmlmotd.daily /etc/cron.daily
+
+crontab -l > kmlcron && echo "0 0 * * * kamoulox > /etc/motd" >> kmlcron && crontab kmlcron && rm -f kmlcron
 if [[ $? -ne 0 ]]
 then
     echo "Error while setting cron job for daily changes."

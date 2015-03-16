@@ -69,6 +69,17 @@ Générateur d'insultes pas très sympas. Pour quand vous parlez politique.
     Immonde arracheur de cocottes-minute à moustaches.
     Espèce de stagiaire en pot de mayonnaise.
 
+### Kamoumail
+Générateur d'adresse email, très utile pour remplir une base de données. Un
+peu comme le Kamounom, mais en pas pareil.
+
+    $> kamoulox kamoumail -n5
+    marc.antoine@assiette.com
+    jean.jacques@tournevis.com
+    christophe@pigeon.voyageur.com
+    ingrid@tiramisu.com
+    paul@ornithologue.com
+
 ### Kamou Ipsum
 Lorem Ipsum version Kamoulox, reprenant les générateurs ci-dessus. Très pratique 
 lorsque vous faites du web et que vous avez surexploité le Bacon Ipsum.

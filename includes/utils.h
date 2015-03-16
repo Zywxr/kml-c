@@ -3,6 +3,7 @@
 
 char *cap(char*);
 char *uncap(char*);
+char *mail(char *str);
 int contains(char *container, char *search);
 char *ccat(char *dest, char *s1, char *s2, char *s3);
 char *replace(char old, char new, char *str);

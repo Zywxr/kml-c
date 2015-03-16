@@ -71,6 +71,7 @@ int kamoulox(s_kml*);
 int kamounom(s_kml*);
 int kamouscuse(s_kml*);
 int kamousulte(s_kml*);
+int kamoumail(s_kml*);
 int kamouipsum(s_kml*);
 
 /* END */

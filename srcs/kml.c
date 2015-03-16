@@ -53,6 +53,8 @@ int main(int ac, char **av) {
       kmlfct = &kamouscuse;
     else if (!strcmp(av[i], "kamousulte") && !kmlfct)
       kmlfct = &kamousulte;
+    else if (!strcmp(av[i], "kamoumail") && !kmlfct)
+      kmlfct = &kamoumail;
     else if (!strcmp(av[i], "ipsum") && !kmlfct)
       kmlfct = &kamouipsum;
     else if (strlen(av[i]) >= 3 && av[i][0] == '-' && av[i][1] == 'n'

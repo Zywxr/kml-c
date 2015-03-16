@@ -129,16 +129,25 @@ int kamoulox(s_kml *kml) {
   return kamoulox_t1(kml);
 }
 
-char *familyname(char *str) {
-  return (replace(' ', '-', cap(str)));
+char *toname(char *str, char rep) {
+  return (replace(' ', rep, str));
 }
 
 int kamounom(s_kml *kml) {
   printf("%s %s",
 	 cap(kml->kmlcat->prenom->list[rand() %
 					kml->kmlcat->prenom->len]),
-	 familyname(kml->kmlcat->nom->list[rand() %
-					   kml->kmlcat->nom->len]));
+	 cap(toname(kml->kmlcat->nom->list[rand() %
+					   kml->kmlcat->nom->len], '-')));
+  return (SUCCESS);
+}
+
+int kamoumail(s_kml *kml) {
+  printf("%s@%s.com",
+	 mail(kml->kmlcat->prenom->list[rand() %
+					 kml->kmlcat->prenom->len]),
+	 mail(toname(kml->kmlcat->nom->list[rand() %
+					    kml->kmlcat->nom->len], '.')));
   return (SUCCESS);
 }
 

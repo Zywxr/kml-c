@@ -64,6 +64,29 @@ char *uncap(char *str) {
   return (str);
 }
 
+/* Change the format of word to a format suitable for mail address:
+- Remove uppercases
+- Remove accents
+- Replace - with . */
+char *mail(char *str) {
+  unsigned int i;
+
+  if (!str || strlen(str) <= 0)
+    return (NULL);
+  for (i = 0; i < strlen(str); i++) {
+    if (str[i] >= 'A' && str[i] <= 'Z') {
+      str[i] = str[i] + 32;
+    }
+    else if (str[i] == '-') {
+      str[i] = '.';
+    }
+    /* else if ((unsigned char)str[i] == 'é' || str[i] == 'è' || str[i] == 'ë') { */
+    /*   str[i] = 'e'; */
+    /* } */
+  }
+  return (str);
+}
+
 /* Replace old by new in str */
 char *supreplace(char *old, char *new, char *str) {
   char *newstr;

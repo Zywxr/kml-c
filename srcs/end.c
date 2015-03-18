@@ -72,6 +72,12 @@ void free_xml_sulte(s_kml **kml) {
   superfree((*kml)->kmlcat->postsulte);
 }
 
+void free_xml_mail(s_kml **kml) {
+  free_category((*kml)->kmlcat->mail->list);
+  superfree((*kml)->kmlcat->mail);
+}
+
+
 void free_xml(s_kml **kml) {
   if (*kml != NULL) {
     xmlFreeDoc((*kml)->xml);
@@ -80,6 +86,7 @@ void free_xml(s_kml **kml) {
       free_xml_base(kml);
       free_xml_scuse(kml);
       free_xml_sulte(kml);
+      free_xml_mail(kml);
       superfree((*kml)->kmlcat);
     }
     superfree(*kml);

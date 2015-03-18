@@ -38,6 +38,8 @@ void init_kmlcat_tonull(s_kml **kml) {
   (*kml)->kmlcat->presulte->list = NULL;
   (*kml)->kmlcat->sulte->list = NULL;
   (*kml)->kmlcat->postsulte->list = NULL;
+  /* Mail */
+  (*kml)->kmlcat->mail->list = NULL;
   return ;
 }
 
@@ -86,6 +88,13 @@ int init_kmlcat_sulte(s_kml **kml) {
   return (SUCCESS);
 }
 
+
+int init_kmlcat_mail(s_kml **kml) {
+  if (init_category((*kml)->kmlcat->mail) == FAILURE)
+    return (error(E_MALLOC, "kmlcat: mail"));
+  return (SUCCESS);
+}
+
 int init_kmlcat(s_kml **kml) {
   /* Set them all to NULL here in case of failure */
   init_kmlcat_tonull(kml);
@@ -95,6 +104,8 @@ int init_kmlcat(s_kml **kml) {
   if (init_kmlcat_scuse(kml) == FAILURE)
     return (FAILURE);
   if (init_kmlcat_sulte(kml) == FAILURE)
+    return (FAILURE);
+  if (init_kmlcat_mail(kml) == FAILURE)
     return (FAILURE);
   return (SUCCESS);
 }
@@ -141,6 +152,12 @@ int init_kml_sulte(s_kml **kml) {
   return (SUCCESS);
 }
 
+int init_kml_mail(s_kml **kml) {
+  if (((*kml)->kmlcat->mail = malloc(sizeof(s_kmllist))) == NULL)
+    return (error(E_MALLOC, "kmlcat: mail"));
+   return (SUCCESS);
+}
+
 int init_kml(s_kml **kml) {
   if ((*kml = malloc(sizeof(s_kml))) == NULL)
     return (error(E_MALLOC, "kml"));
@@ -156,6 +173,8 @@ int init_kml(s_kml **kml) {
   if (init_kml_scuse(kml) == FAILURE)
     return (FAILURE);
   if (init_kml_sulte(kml) == FAILURE)
+    return (FAILURE);
+  if (init_kml_mail(kml) == FAILURE)
     return (FAILURE);
 
   if (init_kmlcat(kml) == FAILURE)

@@ -49,10 +49,11 @@ void set_category(s_kml *kml, char *cat) {
   int i;
   char *cats[] = {"nom", "nompropre", "nomspecial", "verbe",
 		  "complement", "prenom", "prescuse", "scuse1",
-		  "scuse2", "presulte", "sulte", "postsulte", NULL};
+		  "scuse2", "presulte", "sulte", "postsulte",
+		  "mail", NULL};
   int values[] = {NOM, NOMPROPRE, NOMSPE, VERBE, COMP, PRENOM,
 		  PRESCUSE, SCUSE1, SCUSE2, PRESULTE, SULTE,
-		  POSTSULTE, NONE};
+		  POSTSULTE, MAIL, NONE};
 
   kml->cat = NONE;
   for (i = 0; cats[i] != NULL; i++) {
@@ -90,6 +91,8 @@ void append(s_kml *kml, char *content) {
     cat = kml->kmlcat->sulte;
   else if (kml->cat == POSTSULTE)
     cat = kml->kmlcat->postsulte;
+  else if (kml->cat == MAIL)
+    cat = kml->kmlcat->mail;
   else
     free(content); /* No need to keep it if we don't need it. */
 
@@ -117,8 +120,9 @@ void store_kml(s_kml* kml, xmlNodePtr node) {
       set_attribute(kml, current);
       if (strlen((char*)content))
       	append(kml, (char*)content);
-      else
+      else {
 	free(content);
+      }
     }
     /* Recursive stuff */
     store_kml(kml, current->children);

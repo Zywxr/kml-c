@@ -154,12 +154,16 @@ void debug(s_kml *kml) {
   }
   for (ct = 0; ct < kml->kmlcat->comp_m->len; ct++) {
     if (kml->kmlcat->comp_m->list[ct] != NULL
-	&& kml->kmlcat->comp_f->list[ct] != NULL)
+  	&& kml->kmlcat->comp_f->list[ct] != NULL)
       printf("Complement: %s - %s.\n", kml->kmlcat->comp_m->list[ct],
-	     kml->kmlcat->comp_f->list[ct]);
+  	     kml->kmlcat->comp_f->list[ct]);
   }
   for (ct = 0; ct < kml->kmlcat->verbe->len; ct++) {
     if (kml->kmlcat->verbe->list[ct] != NULL)
       printf("Verbe: %s.\n", kml->kmlcat->verbe->list[ct]);
+  }
+  for (ct = 0; ct < kml->kmlcat->mail->len; ct++) {
+    if (kml->kmlcat->mail->list[ct] != NULL)
+      printf("Mail: %s.\n", kml->kmlcat->mail->list[ct]);
   }
 }

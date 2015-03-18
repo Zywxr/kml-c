@@ -993,4 +993,20 @@
       <word>extraterrestre</word>
       <word>sauvage</word>
     </postsulte>
+    <mail>
+      <word>com</word>
+      <word>fr</word>
+      <word>eu</word>
+      <word>net</word>
+      <word>org</word>
+      <word>edu</word>
+      <word>gov</word>
+      <word>be</word>
+      <word>bm</word>
+      <word>ch</word>
+      <word>se</word>
+      <word>info</word>
+      <word>io</word>
+      <word>me</word>
+    </mail>
 </resources>

@@ -143,11 +143,13 @@ int kamounom(s_kml *kml) {
 }
 
 int kamoumail(s_kml *kml) {
-  printf("%s@%s.com",
+  printf("%s@%s.%s",
 	 mail(kml->kmlcat->prenom->list[rand() %
 					 kml->kmlcat->prenom->len]),
 	 mail(toname(kml->kmlcat->nom->list[rand() %
-					    kml->kmlcat->nom->len], '.')));
+					    kml->kmlcat->nom->len], '.')),
+	 kml->kmlcat->mail->list[rand() % kml->kmlcat->mail->len]
+	 );
   return (SUCCESS);
 }
 

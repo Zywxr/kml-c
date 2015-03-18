@@ -75,10 +75,10 @@ peu comme le Kamounom, mais en pas pareil.
 
     $> kamoulox kamoumail -n5
     marc.antoine@assiette.com
-    jean.jacques@tournevis.com
-    christophe@pigeon.voyageur.com
+    jean.jacques@tournevis.gov
+    christophe@pigeon.voyageur.org
     ingrid@tiramisu.com
-    paul@ornithologue.com
+    paul@ornithologue.net
 
 ### Kamou Ipsum
 Lorem Ipsum version Kamoulox, reprenant les générateurs ci-dessus. Très pratique 

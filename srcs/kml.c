@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <fcntl.h>
 #include <libxml/parser.h>
 #include "kml.h"
 #include "error.h"
@@ -11,8 +12,16 @@ int launch(int (*kmlfct)(s_kml*), int occur) {
   s_kml *kml;
   unsigned int i;
   int result;
+  int fd;
 
-  result = get_xml(&kml, XML_FILE);
+  /* Try to open /bin/base XML, else local one */
+  fd = open(XML_FILE, O_RDONLY);
+  if (fd != FAILURE) {
+    close(fd);
+    result = get_xml(&kml, XML_FILE);
+  }
+  else
+    result = get_xml(&kml, XML_LOCAL);
   if (result == FAILURE) {
     free_xml(&kml);
     return (error(E_XML_GEN, XML_FILE));

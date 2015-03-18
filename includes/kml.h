@@ -2,6 +2,7 @@
 # define KML_H_
 
 # define XML_FILE "/bin/base/kml.xml"
+# define XML_LOCAL "./base/kml.xml"
 # define MAX_SIZE 512
 
 typedef enum {

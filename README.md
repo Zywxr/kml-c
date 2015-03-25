@@ -106,6 +106,21 @@ Le script *kmlmotd* vous permet de changer le message of the day sous Unix,
 c'est à dire le message qui s'affiche lorsque vous vous logguez. Le message
 affiché par le *kmlmotd* change tous les jours :)
 
+### Ajouter une commande Kamoulox dans Emacs
+
+Dans un fichier de configuration .emacs dans votre dossier home, mettre le
+code Lisp suivant :
+
+    (defun kamoulox ()
+        (interactive)
+	(shell-command "kamoulox"))
+
+Il faut que le kml soit installé sur le système bien sûr. Ensuite, dans
+Emacs :
+
+    M-x kamoulox
+    
+
 ### Autres petits addons rigolos
 Pour l'instant il n'y a pas d'autres trucs rigolos, mais il y en aura ! Et
 si vous avez des idées, je prend ;)

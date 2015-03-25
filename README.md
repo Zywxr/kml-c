@@ -113,14 +113,16 @@ code Lisp suivant :
 
     (defun kamoulox ()
         (interactive)
-	(shell-command "kamoulox"))
+        (shell-command "kamoulox"))
 
 Il faut que le kml soit installé sur le système bien sûr. Ensuite, dans
 Emacs :
 
     M-x kamoulox
     
+Merci à Pierre pour le tuyau :D
 
 ### Autres petits addons rigolos
+
 Pour l'instant il n'y a pas d'autres trucs rigolos, mais il y en aura ! Et
 si vous avez des idées, je prend ;)

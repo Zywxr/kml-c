@@ -108,18 +108,32 @@ affiché par le *kmlmotd* change tous les jours :)
 
 ### Ajouter une commande Kamoulox dans Emacs
 
-Dans un fichier de configuration .emacs dans votre dossier home, mettre le
-code Lisp suivant :
+Vous pouvez suivre les instructions suivantes pour intégrer le KML project
+dans l'éditeur Emacs et générer une phrase aléatoire avec cette commande :
+
+    M-x kamoulox
+
+Déjà, il faut que le KML Project soit installé sur le système (et oui :p).
+
+Ensuite, dans un fichier de configuration .emacs dans votre dossier home, 
+mettre un des codes Lisp suivant suivant le comportement souhaité :
+
+    * Pour afficher une phrase aléatoire dans le bandeau d'options en bas:
 
     (defun kamoulox ()
         (interactive)
         (shell-command "kamoulox"))
 
-Il faut que le kml soit installé sur le système bien sûr. Ensuite, dans
-Emacs :
+    * Pour afficher une phrase aléatoire dans le buffer courant (le fichier
+      que vous êtes en train d'éditer:
 
-    M-x kamoulox
-    
+    (defun kamoulox (num)
+        (interactive "p")
+        (let ((c 0))
+            (while (< c num)
+                (call-process "kamoulox" nil (current-buffer) nil)
+                (setf c (+ c 1)))))
+
 Merci à Pierre pour le tuyau :D
 
 ### Autres petits addons rigolos

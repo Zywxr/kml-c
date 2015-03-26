@@ -118,23 +118,14 @@ Déjà, il faut que le KML Project soit installé sur le système (et oui :p).
 Ensuite, dans un fichier de configuration .emacs dans votre dossier home, 
 mettre un des codes Lisp suivant suivant le comportement souhaité :
 
-<<<<<<< HEAD
     * Pour afficher une phrase aléatoire dans le bandeau d'options en bas:
-=======
-* Pour afficher une phrase aléatoire dans le bandeau d'options en bas:
->>>>>>> b6ffcb77b18478f44fa0ef73017c9c26958a4dd3
 
     (defun kamoulox ()
         (interactive)
         (shell-command "kamoulox"))
 
-<<<<<<< HEAD
     * Pour afficher une phrase aléatoire dans le buffer courant (le fichier
       que vous êtes en train d'éditer:
-=======
-* Pour afficher une phrase aléatoire dans le buffer courant (le fichier
-que vous êtes en train d'éditer:
->>>>>>> b6ffcb77b18478f44fa0ef73017c9c26958a4dd3
 
     (defun kamoulox (num)
         (interactive "p")
